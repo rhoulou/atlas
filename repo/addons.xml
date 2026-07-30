@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<addons>
+  <addon id="plugin.video.lions" name="Lions" version="1.0.72" provider-name="atlas">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+      <import addon="repository.atlas" optional="true" />
+      <import addon="script.module.pyqrcode" />
+      <import addon="script.kodi.loguploader" />
+      <import addon="script.module.requests" />
+      <import addon="script.module.beautifulsoup4" version="4.9.3" />
+      <import addon="script.module.six" />
+      <import addon="script.module.inputstreamhelper" />
+      <import addon="script.module.resolveurl" version="5.1.00" />
+      <import addon="script.module.dnspython" optional="true" />
+      <import addon="script.module.selenium" optional="true" />
+      <import addon="repository.elementumorg" optional="true" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+      <provides>video</provides>
+    </extension>
+    <extension point="kodi.context.item">
+      <menu id="kodi.core.main">
+        <item library="resources/lib/gui/menuInformation.py">
+          <label>[COLOR lightcoral]$ADDON[plugin.video.lions 30208][/COLOR]</label>
+          <visible>Window.IsVisible(home) + ListItem.Property(sMeta)</visible>
+        </item>
+        <item library="resources/lib/gui/menuAddBookmark.py">
+          <label>[COLOR lightcoral]$ADDON[plugin.video.lions 30210][/COLOR]</label>
+          <visible>Window.IsVisible(home) + !ListItem.Property(isBookmark) + ListItem.Property(sMeta)</visible>
+        </item>
+        <item library="resources/lib/gui/menuSimil.py">
+          <label>[COLOR lightcoral]$ADDON[plugin.video.lions 30213][/COLOR]</label>
+          <visible>Window.IsVisible(home) + ListItem.Property(sMeta)</visible>
+        </item>
+        <item library="resources/lib/gui/menuParents.py">
+          <label>[COLOR lightcoral]$ADDON[plugin.video.lions 33213][/COLOR]</label>
+          <visible>Window.IsVisible(home) + ListItem.Property(sMeta)</visible>
+        </item>
+        <item library="resources/lib/gui/menuDelBookmark.py">
+          <label>$ADDON[plugin.video.lions 30412]</label>
+          <visible>Window.IsVisible(home) + ListItem.Property(isBookmark)</visible>
+        </item>
+        <item library="resources/lib/gui/menuDelViewing.py">
+          <label>$ADDON[plugin.video.lions 30412]</label>
+          <visible>Window.IsVisible(home) + ListItem.Property(isViewing)</visible>
+        </item>
+      </menu>
+    </extension>
+    <extension point="xbmc.service" library="service.py" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="fr_FR">lions is an arabic addon</summary>
+      <description lang="fr_FR">lions lets u access arabic video websites in a beautiful and easy way</description>
+      <disclaimer lang="fr_FR">This add-on doesn’t host any content of any kind. It only shows content from websites available online. All this add-on does is make simple HTTP requests to retrieve and display content just like any web browser would do!</disclaimer>
+      <summary lang="fr_CA">lions is an arabic addon</summary>
+      <description lang="fr_CA">lions lets u access arabic video websites in a beautiful and easy way</description>
+      <disclaimer lang="fr_CA">This add-on doesn’t host any content of any kind. It only shows content from websites available online. All this add-on does is make simple HTTP requests to retrieve and display content just like any web browser would do!</disclaimer>
+      <summary lang="en_GB">lions is an arabic addon</summary>
+      <description lang="en_GB">lions lets u access arabic video websites in a beautiful and easy way</description>
+      <disclaimer lang="en_GB">lions is an arabic addon</disclaimer>
+      <summary lang="en_NZ">lions lets u access arabic video websites in a beautiful and easy way</summary>
+      <description lang="en_NZ">lions lets u access arabic video websites in a beautiful and easy way</description>
+      <disclaimer lang="en_NZ">This add-on doesn’t host any content of any kind. It only shows content from websites available online. All this add-on does is make simple HTTP requests to retrieve and display content just like any web browser would do!</disclaimer>
+      <summary lang="en_US">lions is an arabic addon</summary>
+      <description lang="en_US">lions lets u access arabic video websites in a beautiful and easy way</description>
+      <disclaimer lang="en_US">This add-on doesn’t host any content of any kind. It only shows content from websites available online. All this add-on does is make simple HTTP requests to retrieve and display content just like any web browser would do!</disclaimer>
+      <platform>all</platform>
+      <license>GNU GENERAL PUBLIC LICENSE</license>
+      <forum />
+      <source />
+      <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+        <screenshot>screenshot-01.jpg</screenshot>
+        <screenshot>screenshot-02.jpg</screenshot>
+        <screenshot>screenshot-03.jpg</screenshot>
+        <screenshot>screenshot-04.jpg</screenshot>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="repository.atlas" name="Atlas Repository" version="1.0.0" provider-name="atlas">
+    <extension point="xbmc.addon.repository" name="Atlas Repository">
+      <dir>
+        <info compressed="false">https://rhoulou.github.io/atlas/repo/addons.xml</info>
+        <checksum>https://rhoulou.github.io/atlas/repo/addons.xml.md5</checksum>
+        <datadir zip="true">https://rhoulou.github.io/atlas/repo/zips/</datadir>
+      </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en">Atlas Repository</summary>
+      <description lang="en">Atlas custom Kodi repository</description>
+      <platform>all</platform>
+    </extension>
+  </addon>
+  <addon id="repository.elementumorg" name="ElementumOrg repository" provider-name="elementumorg" version="0.0.2">
+    <requires>
+    </requires>
+    <extension point="xbmc.addon.repository">
+      <dir>
+        <info>http://127.0.0.1:65223/addons.xml</info>
+        <checksum>http://127.0.0.1:65223/addons.xml.md5</checksum>
+        <datadir>http://127.0.0.1:65223/</datadir>
+      </dir>
+    </extension>
+    <extension point="xbmc.python.script" library="default.py" />
+    <extension point="xbmc.service" library="service.py" />
+    <extension point="xbmc.addon.metadata">
+      <platform>all</platform>
+      <license>See https://github.com/ElementumOrg/repository.elementumorg/blob/master/LICENSE</license>
+      <source>https://github.com/ElementumOrg/repository.elementumorg</source>
+      <summary lang="en">GitHub virtual Add-on repository</summary>
+      <description lang="en">Customizable repository which acts as a proxy for defined GitHub users' add-ons updates.</description>
+      <news>
+        </news>
+      <assets>
+        <icon>icon.png</icon>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="script.elementum.burst" name="Elementum [COLOR FFFF6B00]Burst[/COLOR]" version="0.0.71" provider-name="elgatito">
+    <requires>
+      <import addon="xbmc.addon" version="16.0.0" />
+      <import addon="plugin.video.elementum" optional="true" />
+      <import addon="script.module.kodi-six" />
+      <import addon="script.module.requests" />
+      <import addon="script.module.future" version="0.16.0.4" />
+    </requires>
+    <extension point="xbmc.python.script" library="burst.py">
+      <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en">Elementum torrents provider</summary>
+      <summary lang="hr">Elementum torrent pružatelji usluga</summary>
+      <summary lang="es">Proveedor de torrents Elementum</summary>
+      <summary lang="ru">Поисковое дополнение Elementum</summary>
+      <summary lang="sv">Elementum-torrentleverantör</summary>
+      <description lang="en">Elementum Burst is a lean and mean multi-provider for Elementum.</description>
+      <description lang="hr">Elementum Burst je višestruki pružatelj usluga za Elementum.</description>
+      <description lang="es">Elementum Burst es un multi-proveedor simple y eficiente para Elementum.</description>
+      <description lang="ru">Elementum Burst это поисковое дополнение, для поиска торрентов для Elementum.</description>
+      <description lang="sv">Elementum Burst är en enkel och effektiv multi-leverantör för Elementum.</description>
+      <disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content providers.</disclaimer>
+      <disclaimer lang="hr">Autor ovog dodatka ne posjeduje i ne distribuira bilo kakav sadržaj koji je pronađen. Autor nije povezan sa bilo kojim izvorom sadržaja.</disclaimer>
+      <disclaimer lang="es">El autor no aloja ni distribuye ninguno de los contenidos mostrados por este complemento. El autor no tiene ninguna afiliación con los proveedores de contenido.</disclaimer>
+      <disclaimer lang="ru">Автор не несёт ответственности за использование дополнения, не распространяет данные, выводимые дополнением.</disclaimer>
+      <disclaimer lang="sv">Skaparen är inte värd eller distribuerar något av innehållet som visas av detta tillägg. Skaparen har ingen anslutning till innehållsleverantörerna.</disclaimer>
+      <license>WTFPL, Version 2, December 2004. See included LICENSE.</license>
+      <website>https://elementum.surge.sh</website>
+      <source>https://github.com/elgatito/script.elementum.burst</source>
+      <forum>TODO</forum>
+      <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="script.kodi.loguploader" name="Kodi Logfile Uploader" version="1.0.5" provider-name="Team Kodi">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+      <import addon="script.module.pyqrcode" version="1.2.1+matrix.1" />
+      <import addon="script.module.requests" version="2.22.0+matrix.1" />
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+      <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en_GB">Uploads your kodi.log file.</summary>
+      <description lang="en_GB">Uploads your kodi.log file and returns an url you can post on http://forum.kodi.tv/</description>
+      <platform>all</platform>
+      <license>GPL-2.0-only</license>
+      <forum>https://forum.kodi.tv/showthread.php?tid=288153</forum>
+      <source>https://gitlab.com/ronie/script.kodi.loguploader/</source>
+      <assets>
+        <icon>resources/icon.png</icon>
+      </assets>
+      <news>- fix logfile cleaning</news>
+    </extension>
+  </addon>
+  <addon id="script.module.beautifulsoup4" name="beautifulsoup4" version="4.12.2" provider-name="Leonard Richardson">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+      <import addon="script.module.soupsieve" version="2.4.1" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en_GB">Screen-scraping library</summary>
+      <description lang="en_GB">Beautiful Soup is a library that makes it easy to scrape information from web pages. It sits atop an HTML or XML parser, providing Pythonic idioms for iterating, searching, and modifying the parse tree.</description>
+      <license>MIT</license>
+      <platform>all</platform>
+      <website>https://www.crummy.com/software/BeautifulSoup/</website>
+      <source>https://code.launchpad.net/beautifulsoup</source>
+      <assets>
+        <icon>resources/icon.png</icon>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="script.module.dnspython" name="DNS Python" version="1.12.1" provider-name="dnspython">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+      <summary>A Pure Python DNS module</summary>
+      <description>A Pure Python DNS module</description>
+      <disclaimer lang="en" />
+      <language>en</language>
+      <platform>all</platform>
+      <license>BSD-style license</license>
+      <forum />
+      <website>http://www.dnspython.org/</website>
+      <email />
+      <source>https://github.com/Arias800/script.module.dnspython/</source>
+    </extension>
+  </addon>
+  <addon id="script.module.inputstreamhelper" name="InputStream Helper" version="0.8.5" provider-name="emilsvennesson, dagwieers, mediaminister, horstle">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+      <import addon="script.module.pysocks" version="1.6.8" optional="true" />
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+      <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="de_DE">Kodi InputStream und DRM Wiedergabe einfach gemacht</summary>
+      <summary lang="el_GR">Βοηθός Inputstream για το Kodi και εύκολη αναπαραγωγή DRM</summary>
+      <summary lang="en_GB">Kodi InputStream and DRM playback made easy</summary>
+      <summary lang="es_ES">Kodi InputStream y reproducción DRM echa fácil</summary>
+      <summary lang="fr_FR">La lecture Kodi InputStream et DRM en toute simplicité</summary>
+      <summary lang="hr_HR">Kodi InputStream olakšava reprodukciju DRM zaštićenog sadržaja</summary>
+      <summary lang="sv_SE">Kodi InputStream och DRM-uppspelning på ett enkelt sätt</summary>
+      <description lang="de_DE">Dieses einfache Kodi-Modul macht das Leben für Addon Entwickler einfacher, die auf InputStream basierte Addons und DRM Wiedergabe angewiesen sind.</description>
+      <description lang="el_GR">Μία απλή μονάδα για το Kodi η οποία διευκολύνει την ζωή των προγραμματιστών οι οποίοι εξαρτώνται από τα πρόσθετσ InputStream και αναπαραγωγή τύπου DRM.</description>
+      <description lang="en_GB">A simple Kodi module that makes life easier for add-on developers relying on InputStream based add-ons and DRM playback.</description>
+      <description lang="es_ES">Un módulo Kodi simple que hace la vida más fácil para los desarrolladores de complementos que dependen de complementos basados en InputStream y reproducción de DRM.</description>
+      <description lang="fr_FR">Un simple module Kodi qui simplifie la vie des développeurs de modules complémentaires en s’appuyant sur des modules complémentaires basés sur InputStream et sur la lecture de DRM.</description>
+      <description lang="hr_HR">Jednostavan Kodi modul koji olakšava razvijanje dodataka koji se temelje na InputStream dodatku i reprodukciji DRM zaštićenog sadržaja.</description>
+      <description lang="ru_RU">Простой модуль для Kodi, который облегчает жизнь разработчикам дополнений, с использованием InputStream дополнений и воспроизведения DRM контента.</description>
+      <description lang="sv_SE">En enkel Kodi-modul som underlättar livet för tilläggsutvecklare som förlitar sig på InputStream-baserade tillägg och DRM-uppspelning.</description>
+      <news>
+v0.8.5 (2025-12-29)
+- Fix Widevine CDM installation on 32-bit ARM
+
+v0.8.4 (2025-11-04)
+- Fix Widevine CDM installation on ARM hardware
+
+v0.8.3 (2025-10-10)
+- Fix removing older Widevine CDM backups
+
+v0.8.2 (2025-09-25)
+- Fix Widevine CDM installation on 32-bit Windows
+
+v0.8.1 (2025-09-22)
+- Fix Widevine CDM installation on ARM hardware
+
+v0.8.0 (2025-09-19)
+- Fix Widevine CDM installation on Windows, Linux and Macintosh
+- Add support for LG webOS
+
+v0.7.0 (2024-09-24)
+- Get rid of distutils dependency
+- Option to get Widevine from lacros image
+- Remove support for Python 2 and pre-Matrix Kodi versions
+
+v0.6.1 (2023-05-30)
+- Performance improvements on Linux ARM
+- This will be the last release for Python 2 i.e. Kodi 18 (Leia) and below. The next release will require Python 3 and Kodi 19 (Matrix) or higher.
+
+v0.6.0 (2023-05-03)
+- Initial support for AARCH64 Linux
+- Initial support for AARCH64 Macs
+- New option to install a specific version on most platforms
+
+v0.5.10 (2022-04-18)
+- Fix automatic submission of release
+- Update German translation
+- Fix update_frequency setting
+- Fix install_from
+- Improve/Fix Widevine extraction from Chrome OS images
+
+v0.5.9 (2022-03-22)
+- Update Croatian translation
+- Replace deprecated LooseVersion
+- Fix http_get decode error
+- Option to install Widevine from specified source
+    </news>
+      <platform>all</platform>
+      <license>MIT</license>
+      <website>https://github.com/emilsvennesson/script.module.inputstreamhelper/wiki</website>
+      <source>https://github.com/emilsvennesson/script.module.inputstreamhelper</source>
+      <assets>
+        <icon>resources/icon.png</icon>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="script.module.kodi-six" name="Kodi Six" version="0.1.3.1" provider-name="Roman V.M.">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension point="xbmc.python.module" library="libs" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en_GB">Wrappers around Kodi Python API for seamless Python 2/3 compatibility</summary>
+      <description lang="en_GB">Wrappers around Kodi Python API that normalize handling of textual and byte strings in Python 2 and 3.</description>
+      <platform>all</platform>
+      <license>GPL v.3</license>
+      <forum>https://forum.kodi.tv/showthread.php?tid=327883</forum>
+      <source>https://github.com/romanvm/kodi.six</source>
+      <assets>
+        <icon>icon.png</icon>
+      </assets>
+      <news>0.1.3:
+- Fix non-UTF-8 byte string decoding in Python 2.</news>
+    </extension>
+  </addon>
+  <addon id="script.module.pyqrcode" version="1.2.1+matrix.4" name="pyQRcode" provider-name="Michael Nooner">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension library="lib" point="xbmc.python.module" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en_GB">A Python interface to generate QR Code</summary>
+      <description lang="en_GB">A Python interface to generate QR Code</description>
+      <website>https://pypi.org/project/PyQRCode</website>
+      <license>BSD-3-Clause</license>
+      <platform>all</platform>
+      <source>https://github.com/mnooner256/pyqrcode</source>
+      <assets>
+        <icon>icon.png</icon>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="script.module.requests" name="requests" version="2.31.0" provider-name="Python Software Foundation">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+      <import addon="script.module.certifi" version="2023.5.7" />
+      <import addon="script.module.chardet" version="5.1.0" />
+      <import addon="script.module.idna" version="3.4.0" />
+      <import addon="script.module.urllib3" version="1.26.16+matrix.1" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</summary>
+      <description lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</description>
+      <license>Apache-2.0</license>
+      <platform>all</platform>
+      <website>https://requests.readthedocs.io/</website>
+      <source>https://github.com/psf/requests</source>
+      <assets>
+        <icon>resources/icon.png</icon>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="script.module.resolveurl" name="ResolveURL" version="5.1.206" provider-name="gujal">
+    <requires>
+      <import addon="script.module.six" />
+      <import addon="script.module.kodi-six" />
+      <import addon="script.module.pyqrcode" />
+      <import addon="script.module.cloudrequest" optional="true" />
+      <import addon="plugin.video.youtube" optional="true" />
+      <import addon="script.module.python.twitch" optional="true" />
+      <import addon="plugin.googledrive" optional="true" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.python.pluginsource" library="lib/default.py" />
+    <extension point="xbmc.addon.metadata">
+      <platform>all</platform>
+      <summary lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
+      <summary lang="es_ES">Resolver enlaces a videos de sitios populares para poder reproducirlos en XBMC/Kodi.</summary>
+      <summary lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
+      <summary lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi.</summary>
+      <description lang="en_GB">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
+      <description lang="el_GR">Επίλυση συνδέσμων κοινών εξυπηρετητών σε μορφή βίντεο ικανό για αναπαραγωγή στο XBMC/Kodi, απλοποίηση της ανάπτυξης των προσθέτων που χρησιμοποιούν πολλαπλούς εξυπηρετητές για υλικό βίντεο</description>
+      <description lang="hr_HR">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
+      <disclaimer lang="en_GB">This script only resolves video content from legitimate file lockers without prejudice. If this script is being used by 3rd parties to resolve content that you feel infringes upon your Intellectual Property then please take your complaints to the actual website or developer linking to such content and not here. This script in no way searches for any content whatsoever.</disclaimer>
+      <disclaimer lang="el_GR">Το ανωτέρο σενάριο το μόνο που κάνει είναι να επιλύει οπτικοακουστικό περιεχόμενο από νόμιμες πηγές χωρίς προκατάληψη. Εάν το ανωτέρο σενάριο χρησιμοποιηθεί από τρίτους ώστε να επιλύσει περιεχόμενο το οποίο σας προκαλεί αντίδραση ότι παραβιάζει την πνευματική σας ιδιοκτησία παρακαλώ μεταφέρετε τα παραπονά σας στον ιστότοπο τον οποίο βρίσκεται το εν λόγω περιεχόμενο η τον δημιουργό ο οποίος πραγματοποιεί την σύνδεση και όχι εδω. Το σενάριο αυτό ουδεμία περίπτωση πραγματοποιεί αναζήτηση περιεχομένου.</disclaimer>
+      <assets>
+        <icon>icon.png</icon>
+        <fanart>fanart.jpg</fanart>
+      </assets>
+    </extension>
+  </addon>
+  <addon id="script.module.six" name="six" version="1.16.0+matrix.1" provider-name="Benjamin Peterson">
+    <requires>
+      <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en_GB">Python 2 and 3 compatibility utilities</summary>
+      <description lang="en_GB">Python 2 and 3 compatibility utilities</description>
+      <license>MIT</license>
+      <platform>all</platform>
+      <website>https://github.com/benjaminp/six</website>
+      <source>https://github.com/benjaminp/six</source>
+      <assets>
+        <icon>resources/icon.png</icon>
+      </assets>
+    </extension>
+  </addon>
+</addons>

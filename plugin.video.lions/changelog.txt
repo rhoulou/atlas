@@ -1,0 +1,44 @@
+=====================================================
+version="1.0.41"
+-aflamtop: fixed search URL (/search/ -> /?s=), updated logo
+-x1337x_pro: rewritten v1.0.40 (HTML-first cats + AJAX pagination, HTML search + Next links)
+=====================================================
+
+=====================================================
+===================================================
+version="5.1.9"
+-animezid new link update
+-akwam : use of shorten link
+-egybest fix episode & season titles
+-fasel new movie docuentary section link
+=====================================================
+version="1.0.40"
+-x1337x_pro: use HTML pages for categories (/cat/movies/ /tv/ /xxx/) + AJAX pagination, HTML pages for search (/search/?q=) + HTML pagination links
+=====================================================
+version="1.0.39"
+-x1337x_pro: complete rewrite - AJAX-only for categories (Films/Series/XXX), HTML for search, clean 2-branch pagination
+=====================================================
+version="1.0.38"
+-x1337x_pro: fix broken site - update category URLs (/cat/movies/ etc), fix search (GET ?q=), fix regex for new HTML, add AJAX pagination for categories, add XXX category
+=====================================================
+version="1.0.37"
+-all torrent sites: fix load() menu icons - use per-function Search.png/Movies.png/TVShows.png instead of site LOGO
+=====================================================
+version="1.0.36"
+-en_yts_lu: rename display name to "en.yts.lu"
+=====================================================
+version="1.0.35"
+-en_yts_lu: full rewrite - pass torrent API URL as siteUrl (fixes empty listing/hoster), rename to en_yts_lu
+=====================================================
+version="1.0.34"
+-yts_lu: fix listings (use api=popular/trending instead of empty search), add TV show support
+-yts_pro: fix info_hash extraction - aEntry[0] took only 1st char (F) instead of full 40-char hash
+=====================================================
+version="1.0.32"
+-yts_pro: fixed for root URL search, info_hash extraction from JS
+-yts_lu: rewritten to use en.yts.lu JSON API (search + torrent endpoints)
+-zooqle_io: fixed for zooqle.app, grid cell parsing, info hash extraction
+=====================================================
+version="1.0.31"
+-add 23 new torrent sites discovered from kat.cc
+=====================================================Zooqle: fixed for zooqle.app
