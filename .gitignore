@@ -5,3 +5,6 @@ __pycache__/
 *.log
 *.swp
 *.swo
+*.part
+*.part-Frag*
+*.ytdl
