@@ -616,6 +616,11 @@
       "active": "True",
       "url": "https://ok.ru"
     },
+    "youtube": {
+      "label": "YouTube",
+      "active": "True",
+      "url": "https://www.youtube.com"
+    },
     "dailymotion": {
       "label": "Dailymotion",
       "active": "True",

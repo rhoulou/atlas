@@ -1,4 +1,11 @@
 =====================================================
+version="1.0.83"
+-new youtube.py: YouTube as its own global search section (scrapes ytInitialData, no API key)
+-youtube movie/drama searches keep only results >= 30 min, series searches keep clips
+-youtube title matching tolerates spelling variants (Lalla/Lala, Hobbi/Hobi/Hobby) while still requiring all search words
+=====================================================
+
+=====================================================
 version="1.0.82"
 -split global search videos.py into two site sections: OK.RU (ok_ru.py) and Dailymotion (dailymotion.py)
 -videos search now requires all words of the title (case-insensitive, exact "lalla hobi" instead of single-word partials)
