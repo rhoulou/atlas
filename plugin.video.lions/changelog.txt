@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.84"
+-aflamin_com/aflamin_fr: clean the HTML description into a plain-text synopsis (ملخص/Synopsis section, entities decoded, tags stripped, boilerplate + awards/reviews dropped)
+=====================================================
+
+=====================================================
 version="1.0.83"
 -new youtube.py: YouTube as its own global search section (scrapes ytInitialData, no API key)
 -youtube movie/drama searches keep only results >= 30 min, series searches keep clips

@@ -3,6 +3,8 @@ import re
 import time
 import requests
 
+from bs4 import BeautifulSoup
+
 from resources.lib.gui.gui import cGui
 from resources.lib.handler.inputParameterHandler import cInputParameterHandler
 from resources.lib.handler.outputParameterHandler import cOutputParameterHandler
@@ -40,6 +42,11 @@ CATEGORY_ICONS = {
 }
 
 DEFAULT_CATEGORY_ICON = '/Movies.png'
+
+DESC_HEADINGS = ('ملخص', 'Synopsis', 'Résumé')
+DESC_JUNK = re.compile(r'(récompense|distinction|à propos|a propos|apropo|جوائز|مكافآت|عن الفيلم|نبذة|حول الفيلم)', re.I)
+DESC_BOILERPLATE = re.compile(r'^(de\s+)|^(ل)|^(en\s*VOD|VOD)$', re.I)
+DESC_NOTE = re.compile(r'(يُعرض هذا الفيلم|يتم تقديم هذا الفيلم|Ce film sera|sera mis)', re.I)
 
 
 def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
@@ -132,7 +139,7 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
             for oProduct in oProducts['items']:
                 sTitle = oProduct['name']
                 sThumb = _pickCover(oProduct.get('images', []))
-                sDesc = oProduct.get('description') or ''
+                sDesc = _cleanDescription(oProduct.get('description') or '', sTitle)
 
                 sYear = _getYear(oProduct)
                 if sYear:
@@ -190,6 +197,36 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
             if not sCover:
                 sCover = sSource
         return sCover
+
+    def _cleanDescription(sHtml, sTitle=''):
+        if not sHtml:
+            return ''
+        oSoup = BeautifulSoup(sHtml, 'html.parser')
+        aParas = [' '.join(oPara.get_text(' ').split()) for oPara in oSoup.find_all('p')]
+        aParas = [sPara for sPara in aParas if sPara]
+
+        iStart = None
+        for i, sPara in enumerate(aParas):
+            if sPara in DESC_HEADINGS:
+                iStart = i + 1
+                break
+
+        aBody = aParas if iStart is None else aParas[iStart:]
+
+        if iStart is None:
+            aBody = [sPara for sPara in aBody
+                     if sPara != sTitle and not DESC_BOILERPLATE.match(sPara) and not DESC_NOTE.search(sPara)]
+
+        aDesc = []
+        for sPara in aBody:
+            if DESC_JUNK.search(sPara):
+                break
+            aDesc.append(sPara)
+
+        sText = '\n'.join(aDesc).strip()
+        if iStart is None and len(sText) > 600:
+            sText = sText[:600] + '...'
+        return sText
 
     def _getYear(oProduct):
         for oMeta in oProduct.get('metadata') or []:
