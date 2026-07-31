@@ -29,6 +29,7 @@ URL_SEARCH_SERIES = (URL_MAIN + '/search.php?q=', 'showSeriesSearch')
 URL_SEARCH_OTHER = (URL_MAIN + '/search?catname=other&q=', 'showOtherSearch')
 URL_SEARCH_ALL = (URL_MAIN + '/search?q=', 'showAllSearch')
 FUNCTION_SEARCH = 'showSearch'
+URL_SEARCH_DRAMAS = ('', 'showSearch')
 FUNCTION_SEARCH_SERIES = 'showSeriesSearch'
 FUNCTION_SEARCH_OTHER = 'showOtherSearch'
 FUNCTION_SEARCH_ALL = 'showAllSearch'
@@ -66,12 +67,19 @@ def load():
 
     oGui.setEndOfDirectory()
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText:
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    if sSearchText.startswith('http'):
+        sUrl = sSearchText
+    else:
+        sSearchText = urllib.parse.unquote(sSearchText)
         sUrl = URL_MAIN + '/search.php?q=' + urllib.parse.quote(sSearchText)
-        __fetchAndShow(sUrl, 'showSearch')
+    __fetchAndShow(sUrl, 'showSearch')
     oGui.setEndOfDirectory()
 
 def showSeriesSearch():

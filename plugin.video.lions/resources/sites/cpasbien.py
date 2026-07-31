@@ -22,6 +22,7 @@ CAT_SERIES = (URL_MAIN + '/category/series', 'showSeries')
 
 URL_SEARCH = (URL_MAIN, 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
+URL_SEARCH_DRAMAS = ('', 'showSearch')
 
 def load():
     oGui = cGui()
@@ -40,16 +41,20 @@ def load():
 
     oGui.setEndOfDirectory()
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText:
-        oRequestHandler = cRequestHandler(URL_MAIN)
-        oRequestHandler.setRequestType(1)
-        oRequestHandler.addParameters('torrentSearch', sSearchText)
-        sHtmlContent = oRequestHandler.request()
-        __showTorrents(sHtmlContent)
-        oGui.setEndOfDirectory()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    sSearchText = urllib.parse.unquote(sSearchText)
+    oRequestHandler = cRequestHandler(URL_MAIN)
+    oRequestHandler.setRequestType(1)
+    oRequestHandler.addParameters('torrentSearch', sSearchText)
+    sHtmlContent = oRequestHandler.request()
+    __showTorrents(sHtmlContent)
+    oGui.setEndOfDirectory()
 
 def showFilms():
     oInputParameterHandler = cInputParameterHandler()

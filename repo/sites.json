@@ -15,6 +15,11 @@
       "active": "True",
       "url": "https://aflamfree.one/"
     },
+    "aflamin_com": {
+      "label": "Aflamin",
+      "active": "True",
+      "url": "https://www.aflamin.com/ar"
+    },
     "aflamtop": {
       "label": "Aflamtop",
       "active": "True",
@@ -600,6 +605,11 @@
       "label": "Yallalive",
       "active": "True",
       "url": "https://yallalive.sx/"
+    },
+    "videos": {
+      "label": "Videos",
+      "active": "True",
+      "url": "https://www.dailymotion.com"
     },
     "yts_lu": {
       "label": "YTS (.lu)",

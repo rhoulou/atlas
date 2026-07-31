@@ -1,626 +1,636 @@
 {
-  "sites": {
-    "MatrixTV": {
-      "label": "MatrixTV",
-      "active": "True",
-      "url": "https://iptv-org.github.io/"
-    },
-    "aflaam": {
-      "label": "Aflaam",
-      "active": "True",
-      "url": "https://aflaam.com/"
-    },
-    "aflamfree": {
-      "label": "Aflamfree",
-      "active": "True",
-      "url": "https://aflamfree.one/"
-    },
-    "aflamtop": {
-      "label": "Aflamtop",
-      "active": "True",
-      "url": "https://aflam.top/"
-    },
-    "ahdaf": {
-      "label": "Ahdaf",
-      "active": "True",
-      "url": "https://ahdaf-kooora.net/"
-    },
-    "akoam": {
-      "label": "Akoam",
-      "active": "True",
-      "url": "https://ak.sv/old/"
-    },
-    "akwam": {
-      "label": "Akwam",
-      "active": "True",
-      "url": "https://akwam.it/"
-    },
-    "alarab": {
-      "label": "Alarab",
-      "active": "True",
-      "url": "https://vod2.alarab.com/"
-    },
-    "alarabiya": {
-      "label": "Alarabiya",
-      "active": "True",
-      "url": "https://www.alarabiya.net/"
-    },
-    "alfajertv": {
-      "label": "Alfajertv",
-      "active": "True",
-      "url": "https://show.alfajertv.com/"
-    },
-    "aljazeera": {
-      "label": "Aljazeera",
-      "active": "True",
-      "url": "https://www.aljazeera.net/"
-    },
-    "alwanfilm": {
-      "label": "Alwanfilm",
-      "active": "True",
-      "url": "https://alwanfilm.com/"
-    },
-    "animeblkom": {
-      "label": "Animeblkom",
-      "active": "True",
-      "url": "https://blkom.com/"
-    },
-    "animeup": {
-      "label": "Anime4up",
-      "active": "True",
-      "url": "https://w1.anime4up.rest/"
-    },
-    "animezid": {
-      "label": "Animezid",
-      "active": "True",
-      "url": "https://animezid.org/"
-    },
-    "annuaire_telechargement": {
-      "label": "Annuaire Telechargement",
-      "active": "True",
-      "url": "https://annuaire-telechargement.lol/"
-    },
-    "annuaire_telechargement_estate": {
-      "label": "Annuaire Telechargement (.estate)",
-      "active": "True",
-      "cloudflare": "True",
-      "url": "https://www.annuaire-telechargement.estate/"
-    },
-    "arabsciences": {
-      "label": "Arabsciences",
-      "active": "True",
-      "url": "https://arabsciences.com/"
-    },
-    "arabseed": {
-      "label": "Arabseed",
-      "active": "True",
-      "url": "https://arabseed.rocks/"
-    },
-    "aracinema_co": {
-      "label": "Aramosalsal",
-      "active": "True",
-      "url": "https://aradramatv.com/"
-    },
-    "arbcinema": {
-      "label": "Arbcinema",
-      "active": "True",
-      "url": "https://www.arabcinematv.com/"
-    },
-    "arblionz": {
-      "label": "Arblionz",
-      "active": "True",
-      "url": "https://arablionz.live/"
-    },
-    "asharq": {
-      "label": "asharq",
-      "active": "True",
-      "url": "https://now.asharq.com"
-    },
-    "asia2tv": {
-      "label": "Asia2TV",
-      "active": "True",
-      "url": "https://ww1.asia2tv.pw/"
-    },
-    "asiaarabs": {
-      "label": "Asia4arabs",
-      "active": "True",
-      "url": "https://www.asia4arabs.com/"
-    },
-    "bahyfilm": {
-      "label": "Bahyfilm",
-      "active": "True",
-      "url": "https://bahyfilm.com/"
-    },
-    "beinmatch": {
-      "label": "Beinmatch",
-      "active": "True",
-      "url": "https://beinmatch.biz/"
-    },
-    "beinsports_net": {
-      "label": "Beinsports",
-      "active": "True",
-      "url": "https://www.beinsports.com/"
-    },
-    "bongacams": {
-      "label": "BongaCams",
-      "active": "True",
-      "url": "https://bongacams.com/"
-    },
-    "btolat": {
-      "label": "Btolat",
-      "active": "True",
-      "url": "https://www.btolat.com/"
-    },
-    "cams_com": {
-      "label": "cams.com",
-      "active": "True",
-      "url": "https://www.cams.com/"
-    },
-    "camsoda": {
-      "label": "CamSoda",
-      "active": "True",
-      "url": "https://www.camsoda.com/"
-    },
-    "cartoonrbi": {
-      "label": "CartoonArbi",
-      "active": "True",
-      "url": "https://www.arteenz.com/"
-    },
-    "cdrama": {
-      "label": "Cdrama",
-      "active": "True",
-      "url": "https://cdrama.cc/"
-    },
-    "chaturbate": {
-      "label": "Chaturbate",
-      "active": "True",
-      "url": "https://chaturbate.com/"
-    },
-    "cimaclub": {
-      "label": "Cimaclub",
-      "active": "True",
-      "url": "https://cimacub.com/home/"
-    },
-    "cimanow": {
-      "label": "Cimanow",
-      "active": "True",
-      "url": "https://cimanow.cc/"
-    },
-    "cima4u": {
-      "label": "Cima4u delivery",
-      "active": "True",
-      "url": "https://cima4u.delivery/"
-    },
-    "cimau": {
-      "label": "Cima4u cam",
-      "active": "True",
-      "url": "https://cimafu.cam/"
-    },
-    "cpasbien": {
-      "label": "Cpasbien",
-      "active": "True",
-      "url": "https://www.cpasbien5.cc/"
-    },
-    "daktna": {
-      "label": "Daktna",
-      "active": "True",
-      "url": "https://u.daktna.cam/"
-    },
-    "deep_drama": {
-      "label": "Deep Drama",
-      "active": "True",
-      "url": "https://www.deep-drama.com/"
-    },
-    "demonoid_torrentbay_st": {
-      "label": "Demonoid",
-      "active": "False",
-      "url": "https://demonoid.torrentbay.st/"
-    },
-    "detectiveconanar": {
-      "label": "Detectiveconanar",
-      "active": "True",
-      "url": "https://detectiveconanar.com/"
-    },
-    "docarabic": {
-      "label": "Docarabic",
-      "active": "True",
-      "url": "https://docarabic.wordpress.com/"
-    },
-    "egybest": {
-      "label": "EgyBest",
-      "active": "True",
-      "url": "https://egybests.live/"
-    },
-    "egyclub": {
-      "label": "Egyclub",
-      "active": "False",
-      "url": "https://my.egy-club.com/"
-    },
-    "egydead": {
-      "label": "Egydead",
-      "active": "True",
-      "url": "https://egydead.space/"
-    },
-    "esseq": {
-      "label": "Esseq",
-      "active": "True",
-      "url": "https://qeseh.net/"
-    },
-    "ettv_torrentbay_st": {
-      "label": "ETTV",
-      "active": "False",
-      "url": "https://ettv.torrentbay.st/"
-    },
-    "extranet_torrentbay_st": {
-      "label": "ExtraNet",
-      "active": "True",
-      "url": "https://extranet.torrentbay.st/"
-    },
-    "extratorrent_torrentbay_st": {
-      "label": "ExtraTorrent",
-      "active": "True",
-      "url": "https://extra.torrentbay.st/"
-    },
-    "eztv_torrentbay_st": {
-      "label": "EZTV (.st)",
-      "active": "False",
-      "url": "https://eztv.torrentbay.st/"
-    },
-    "eztvx_to": {
-      "label": "EZTV",
-      "active": "True",
-      "url": "https://eztvx.to/"
-    },
-    "fansubs": {
-      "label": "Fansubstv",
-      "active": "True",
-      "url": "https://fansubs.tv/"
-    },
-    "faselhd": {
-      "label": "Faselhd",
-      "active": "True",
-      "url": "https://www.faselhd.center/"
-    },
-    "fnteam": {
-      "label": "Fnteam",
-      "active": "True",
-      "url": "https://www.fn-team.com/"
-    },
-    "fushaar": {
-      "label": "Fushaar",
-      "active": "True",
-      "url": "https://www.fushaar.com/"
-    },
-    "gateanime": {
-      "label": "Gateanime",
-      "active": "True",
-      "url": "https://c.gateanime.com/"
-    },
-    "geoarabic": {
-      "label": "Geoarabic",
-      "active": "True",
-      "url": "https://www.geoarabic.com/"
-    },
-    "halacima": {
-      "label": "Halacima",
-      "active": "True",
-      "url": "https://halacima.website/"
-    },
-    "hidaya": {
-      "label": "Hidaya",
-      "active": "True",
-      "url": "https://hidaya.tn/"
-    },
-    "ifushaar": {
-      "label": "iFushaar",
-      "active": "True",
-      "url": "https://t.ifushaar.com/"
-    },
-    "ilcorsaronero_torrentbay_st": {
-      "label": "IlCorSaRoNeRo",
-      "active": "True",
-      "url": "https://ilcorsaronero.torrentbay.st/"
-    },
-    "kat_cc": {
-      "label": "KAT",
-      "active": "True",
-      "url": "https://kat.cc/"
-    },
-    "katkoute": {
-      "label": "Katkoute",
-      "active": "True",
-      "url": "https://www.katkoute.com/"
-    },
-    "koralive": {
-      "label": "Koralive",
-      "active": "True",
-      "url": "https://lives.360kora-live.com/"
-    },
-    "libgen_torrentbay_st": {
-      "label": "LibGen",
-      "active": "True",
-      "url": "https://libgen.torrentbay.st/"
-    },
-    "limetorrents_asia": {
-      "label": "Limetorrents",
-      "active": "True",
-      "url": "https://limetorrents.asia/"
-    },
-    "linkbox": {
-      "label": "Telebox",
-      "active": "True",
-      "url": "https://www.linkbox.to"
-    },
-    "lodynet": {
-      "label": "Lodynet",
-      "active": "True",
-      "url": "https://lodynet.cfd/"
-    },
-    "magnetdl_pro": {
-      "label": "MagnetDL",
-      "active": "True",
-      "url": "https://magnetdl.pro/"
-    },
-    "monova_torrentbay_st": {
-      "label": "Monova",
-      "active": "False",
-      "url": "https://monova.torrentbay.st/"
-    },
-    "moviegate": {
-      "label": "Moviegate",
-      "active": "True",
-      "url": "https://moviegate.one/"
-    },
-    "moviztime": {
-      "label": "MovizTime",
-      "active": "False",
-      "url": "https://movtime3.store/"
-    },
-    "mycima": {
-      "label": "Wecima",
-      "active": "True",
-      "url": "https://wecima.gold/"
-    },
-    "narto_drama": {
-      "label": "Narto Drama",
-      "active": "True",
-      "url": "https://narto-drama.com/"
-    },
-    "pakistani": {
-      "label": "Pakistani",
-      "active": "True",
-      "url": "https://pakistani-live.net/"
-    },
-    "pirateiro_io": {
-      "label": "Pirateiro",
-      "active": "True",
-      "url": "https://pirateiro.io/"
-    },
-    "prstej": {
-      "label": "Prstej",
-      "active": "True",
-      "url": "https://wws.brstej.com/"
-    },
-    "qfilm": {
-      "label": "QFilm",
-      "active": "True",
-      "url": "https://a.qfilm.tv/"
-    },
-    "rarbg_to": {
-      "label": "RARBG",
-      "active": "True",
-      "url": "https://rarbg.to/"
-    },
-    "rarbg_torrentbay_st": {
-      "label": "RARBG (.st)",
-      "active": "False",
-      "url": "https://rarbg.torrentbay.st/"
-    },
-    "s3uditv": {
-      "label": "S3uditv",
-      "active": "False",
-      "url": "https://k.s3udi.tv/"
-    },
-    "scnsrc_torrentbay_st": {
-      "label": "ScnSrc",
-      "active": "False",
-      "url": "https://scnsrc.torrentbay.st/"
-    },
-    "shahidu": {
-      "label": "Shahid4u",
-      "active": "False",
-      "url": "https://shiid4u.co/"
-    },
-    "shiid4u_co": {
-      "label": "Shiid4u",
-      "active": "True",
-      "url": "https://shiid4u.co/"
-    },
-    "shahid4u_uno": {
-      "label": "Shahid4u Uno",
-      "active": "False",
-      "url": "https://shahid4u.uno/home/"
-    },
-    "sharework4": {
-      "label": "Sharework",
-      "active": "True",
-      "url": "https://www.sharework4.cc/"
-    },
-    "shoffree": {
-      "label": "Shoffree",
-      "active": "True",
-      "url": "https://sh.shoffree.com/"
-    },
-    "shooflive": {
-      "label": "Shooflive",
-      "active": "False",
-      "url": "https://tv.shooflive.art/"
-    },
-    "shooflive_net": {
-      "label": "Shooflive",
-      "active": "True",
-      "url": "https://shooflive.net/"
-    },
-    "shoofvod": {
-      "label": "Shoofvod",
-      "active": "True",
-      "url": "http://shoofvod.com/"
-    },
-    "shortseris_online": {
-      "label": "ShortSeris",
-      "active": "True",
-      "url": "https://shortseris.online/"
-    },
-    "spacepowerfan": {
-      "label": "Spacepowerfan",
-      "active": "True",
-      "url": "https://spacepowerfan.com/"
-    },
-    "stardima": {
-      "label": "Stardima",
-      "active": "True",
-      "url": "https://w1.stardima.sbs/watch/"
-    },
-    "stripchat": {
-      "label": "Stripchat",
-      "active": "True",
-      "url": "https://stripchat.com/"
-    },
-    "studiotv": {
-      "label": "studio2tv",
-      "active": "True",
-      "url": "https://www.studio2tv.tn/"
-    },
-    "tamilmv_torrentbay_st": {
-      "label": "TamilMV",
-      "active": "True",
-      "url": "https://tamilmv.torrentbay.st/"
-    },
-    "themoviedb_org": {
-      "label": "The Movie Database",
-      "active": "True",
-      "url": "https://www.themoviedb.org/"
-    },
-    "thepiratebay_city": {
-      "label": "The Pirate Bay",
-      "active": "True",
-      "url": "https://piratebay.city/"
-    },
-    "toonsland": {
-      "label": "Toonsland",
-      "active": "True",
-      "url": "https://www.toonsland.site/"
-    },
-    "topcinema": {
-      "label": "TopCinema",
-      "active": "True",
-      "url": "https://web3.topcinema.top/"
-    },
-    "topimdb": {
-      "label": "Top IMDB",
-      "active": "True",
-      "url": "https://www.imdb.com/"
-    },
-    "torrent9_bid": {
-      "label": "Torrent9",
-      "active": "True",
-      "url": "https://www.torrent9.bid/"
-    },
-    "torrent9_torrentbay_st": {
-      "label": "Torrent9",
-      "active": "True",
-      "url": "https://torrent9.torrentbay.st/"
-    },
-    "torrentgalaxy_pw": {
-      "label": "TorrentGalaxy",
-      "active": "True",
-      "url": "https://torrentgalaxy.pw/"
-    },
-    "torrentproject_torrentbay_st": {
-      "label": "TorrentProject",
-      "active": "True",
-      "url": "https://torrentproject.torrentbay.st/"
-    },
-    "torrentz2_torrentbay_st": {
-      "label": "Torrentz2",
-      "active": "False",
-      "url": "https://torrentz2.torrentbay.st/"
-    },
-    "tuktukcinema": {
-      "label": "Tuktukcinema",
-      "active": "True",
-      "url": "https://ww.tuktukcima.com/"
-    },
-    "tvfun": {
-      "label": "tvfun",
-      "active": "True",
-      "url": "https://www.tv-f.com/"
-    },
-    "tvnine": {
-      "label": "Tv96",
-      "active": "True",
-      "url": "https://tv.s96.net/"
-    },
-    "watanflix": {
-      "label": "Watanflix",
-      "active": "True",
-      "url": "https://watanflix.com/"
-    },
-    "watchepisodes_torrentbay_st": {
-      "label": "WatchEp",
-      "active": "False",
-      "url": "https://watchepisodes.torrentbay.st/"
-    },
-    "witanime": {
-      "label": "WitAnime",
-      "active": "True",
-      "url": "https://witanime.com/"
-    },
-    "xhamsterlive": {
-      "label": "xHamsterLive",
-      "active": "True",
-      "url": "https://xhamsterlive.com/"
-    },
-    "x1337x_pro": {
-      "label": "1337x",
-      "active": "True",
-      "url": "https://1337x.pro/"
-    },
-    "xsanime": {
-      "label": "Xsanime",
-      "active": "False",
-      "url": "https://xsaniime.com/"
-    },
-    "yalladrama": {
-      "label": "Yalladrama",
-      "active": "False",
-      "url": "https://ww2.yalladrama.co/"
-    },
-    "yallalive": {
-      "label": "Yallalive",
-      "active": "True",
-      "url": "https://yallalive.sx/"
-    },
-    "en_yts_lu": {
-      "label": "en.yts.lu",
-      "active": "True",
-      "url": "https://en.yts.lu/"
-    },
-    "yts_pro": {
-      "label": "YTS",
-      "active": "True",
-      "url": "https://yts.pro/"
-    },
-    "zone_telechargement_estate": {
-      "label": "Zone Telechargement (.estate)",
-      "active": "True",
-      "cloudflare": "True",
-      "url": "https://www.zone-telechargement.estate/"
-    },
-    "zooqle_io": {
-      "label": "Zooqle",
-      "active": "True",
-      "url": "https://zooqle.app/"
+    "sites": {
+        "MatrixTV": {
+            "label": "MatrixTV",
+            "active": "True",
+            "url": "https://iptv-org.github.io/"
+        },
+        "aflaam": {
+            "label": "Aflaam",
+            "active": "True",
+            "url": "https://aflaam.com/"
+        },
+        "aflamfree": {
+            "label": "Aflamfree",
+            "active": "True",
+            "url": "https://aflamfree.one/"
+        },
+        "aflamin_com": {
+            "label": "Aflamin",
+            "active": "True",
+            "url": "https://www.aflamin.com/ar"
+        },
+        "aflamtop": {
+            "label": "Aflamtop",
+            "active": "True",
+            "url": "https://aflam.top/"
+        },
+        "ahdaf": {
+            "label": "Ahdaf",
+            "active": "True",
+            "url": "https://ahdaf-kooora.net/"
+        },
+        "akoam": {
+            "label": "Akoam",
+            "active": "True",
+            "url": "https://ak.sv/old/"
+        },
+        "akwam": {
+            "label": "Akwam",
+            "active": "True",
+            "url": "https://akwam.it/"
+        },
+        "alarab": {
+            "label": "Alarab",
+            "active": "True",
+            "url": "https://vod2.alarab.com/"
+        },
+        "alarabiya": {
+            "label": "Alarabiya",
+            "active": "True",
+            "url": "https://www.alarabiya.net/"
+        },
+        "alfajertv": {
+            "label": "Alfajertv",
+            "active": "True",
+            "url": "https://show.alfajertv.com/"
+        },
+        "aljazeera": {
+            "label": "Aljazeera",
+            "active": "True",
+            "url": "https://www.aljazeera.net/"
+        },
+        "alwanfilm": {
+            "label": "Alwanfilm",
+            "active": "True",
+            "url": "https://alwanfilm.com/"
+        },
+        "animeblkom": {
+            "label": "Animeblkom",
+            "active": "True",
+            "url": "https://blkom.com/"
+        },
+        "animeup": {
+            "label": "Anime4up",
+            "active": "True",
+            "url": "https://w1.anime4up.rest/"
+        },
+        "animezid": {
+            "label": "Animezid",
+            "active": "True",
+            "url": "https://animezid.org/"
+        },
+        "annuaire_telechargement": {
+            "label": "Annuaire Telechargement",
+            "active": "True",
+            "url": "https://annuaire-telechargement.lol/"
+        },
+        "annuaire_telechargement_estate": {
+            "label": "Annuaire Telechargement (.estate)",
+            "active": "True",
+            "cloudflare": "True",
+            "url": "https://www.annuaire-telechargement.estate/"
+        },
+        "arabsciences": {
+            "label": "Arabsciences",
+            "active": "True",
+            "url": "https://arabsciences.com/"
+        },
+        "arabseed": {
+            "label": "Arabseed",
+            "active": "True",
+            "url": "https://arabseed.rocks/"
+        },
+        "aracinema_co": {
+            "label": "Aramosalsal",
+            "active": "True",
+            "url": "https://aradramatv.com/"
+        },
+        "arbcinema": {
+            "label": "Arbcinema",
+            "active": "True",
+            "url": "https://www.arabcinematv.com/"
+        },
+        "arblionz": {
+            "label": "Arblionz",
+            "active": "True",
+            "url": "https://arablionz.live/"
+        },
+        "asharq": {
+            "label": "asharq",
+            "active": "True",
+            "url": "https://now.asharq.com"
+        },
+        "asia2tv": {
+            "label": "Asia2TV",
+            "active": "True",
+            "url": "https://ww1.asia2tv.pw/"
+        },
+        "asiaarabs": {
+            "label": "Asia4arabs",
+            "active": "True",
+            "url": "https://www.asia4arabs.com/"
+        },
+        "bahyfilm": {
+            "label": "Bahyfilm",
+            "active": "True",
+            "url": "https://bahyfilm.com/"
+        },
+        "beinmatch": {
+            "label": "Beinmatch",
+            "active": "True",
+            "url": "https://beinmatch.biz/"
+        },
+        "beinsports_net": {
+            "label": "Beinsports",
+            "active": "True",
+            "url": "https://www.beinsports.com/"
+        },
+        "bongacams": {
+            "label": "BongaCams",
+            "active": "True",
+            "url": "https://bongacams.com/"
+        },
+        "btolat": {
+            "label": "Btolat",
+            "active": "True",
+            "url": "https://www.btolat.com/"
+        },
+        "cams_com": {
+            "label": "cams.com",
+            "active": "True",
+            "url": "https://www.cams.com/"
+        },
+        "camsoda": {
+            "label": "CamSoda",
+            "active": "True",
+            "url": "https://www.camsoda.com/"
+        },
+        "cartoonrbi": {
+            "label": "CartoonArbi",
+            "active": "True",
+            "url": "https://www.arteenz.com/"
+        },
+        "cdrama": {
+            "label": "Cdrama",
+            "active": "True",
+            "url": "https://cdrama.cc/"
+        },
+        "chaturbate": {
+            "label": "Chaturbate",
+            "active": "True",
+            "url": "https://chaturbate.com/"
+        },
+        "cimaclub": {
+            "label": "Cimaclub",
+            "active": "True",
+            "url": "https://cimacub.com/home/"
+        },
+        "cimanow": {
+            "label": "Cimanow",
+            "active": "True",
+            "url": "https://cimanow.cc/"
+        },
+        "cima4u": {
+            "label": "Cima4u delivery",
+            "active": "True",
+            "url": "https://cima4u.delivery/"
+        },
+        "cimau": {
+            "label": "Cima4u cam",
+            "active": "True",
+            "url": "https://cimafu.cam/"
+        },
+        "cpasbien": {
+            "label": "Cpasbien",
+            "active": "True",
+            "url": "https://www.cpasbien5.cc/"
+        },
+        "daktna": {
+            "label": "Daktna",
+            "active": "True",
+            "url": "https://u.daktna.cam/"
+        },
+        "deep_drama": {
+            "label": "Deep Drama",
+            "active": "True",
+            "url": "https://www.deep-drama.com/"
+        },
+        "demonoid_torrentbay_st": {
+            "label": "Demonoid",
+            "active": "False",
+            "url": "https://demonoid.torrentbay.st/"
+        },
+        "detectiveconanar": {
+            "label": "Detectiveconanar",
+            "active": "True",
+            "url": "https://detectiveconanar.com/"
+        },
+        "docarabic": {
+            "label": "Docarabic",
+            "active": "True",
+            "url": "https://docarabic.wordpress.com/"
+        },
+        "egybest": {
+            "label": "EgyBest",
+            "active": "True",
+            "url": "https://egybests.live/"
+        },
+        "egyclub": {
+            "label": "Egyclub",
+            "active": "False",
+            "url": "https://my.egy-club.com/"
+        },
+        "egydead": {
+            "label": "Egydead",
+            "active": "True",
+            "url": "https://egydead.space/"
+        },
+        "esseq": {
+            "label": "Esseq",
+            "active": "True",
+            "url": "https://qeseh.net/"
+        },
+        "ettv_torrentbay_st": {
+            "label": "ETTV",
+            "active": "False",
+            "url": "https://ettv.torrentbay.st/"
+        },
+        "extranet_torrentbay_st": {
+            "label": "ExtraNet",
+            "active": "True",
+            "url": "https://extranet.torrentbay.st/"
+        },
+        "extratorrent_torrentbay_st": {
+            "label": "ExtraTorrent",
+            "active": "True",
+            "url": "https://extra.torrentbay.st/"
+        },
+        "eztv_torrentbay_st": {
+            "label": "EZTV (.st)",
+            "active": "False",
+            "url": "https://eztv.torrentbay.st/"
+        },
+        "eztvx_to": {
+            "label": "EZTV",
+            "active": "True",
+            "url": "https://eztvx.to/"
+        },
+        "fansubs": {
+            "label": "Fansubstv",
+            "active": "True",
+            "url": "https://fansubs.tv/"
+        },
+        "faselhd": {
+            "label": "Faselhd",
+            "active": "True",
+            "url": "https://www.faselhd.center/"
+        },
+        "fnteam": {
+            "label": "Fnteam",
+            "active": "True",
+            "url": "https://www.fn-team.com/"
+        },
+        "fushaar": {
+            "label": "Fushaar",
+            "active": "True",
+            "url": "https://www.fushaar.com/"
+        },
+        "gateanime": {
+            "label": "Gateanime",
+            "active": "True",
+            "url": "https://c.gateanime.com/"
+        },
+        "geoarabic": {
+            "label": "Geoarabic",
+            "active": "True",
+            "url": "https://www.geoarabic.com/"
+        },
+        "halacima": {
+            "label": "Halacima",
+            "active": "True",
+            "url": "https://halacima.website/"
+        },
+        "hidaya": {
+            "label": "Hidaya",
+            "active": "True",
+            "url": "https://hidaya.tn/"
+        },
+        "ifushaar": {
+            "label": "iFushaar",
+            "active": "True",
+            "url": "https://t.ifushaar.com/"
+        },
+        "ilcorsaronero_torrentbay_st": {
+            "label": "IlCorSaRoNeRo",
+            "active": "True",
+            "url": "https://ilcorsaronero.torrentbay.st/"
+        },
+        "kat_cc": {
+            "label": "KAT",
+            "active": "True",
+            "url": "https://kat.cc/"
+        },
+        "katkoute": {
+            "label": "Katkoute",
+            "active": "True",
+            "url": "https://www.katkoute.com/"
+        },
+        "koralive": {
+            "label": "Koralive",
+            "active": "True",
+            "url": "https://lives.360kora-live.com/"
+        },
+        "libgen_torrentbay_st": {
+            "label": "LibGen",
+            "active": "True",
+            "url": "https://libgen.torrentbay.st/"
+        },
+        "limetorrents_asia": {
+            "label": "Limetorrents",
+            "active": "True",
+            "url": "https://limetorrents.asia/"
+        },
+        "linkbox": {
+            "label": "Telebox",
+            "active": "True",
+            "url": "https://www.linkbox.to"
+        },
+        "lodynet": {
+            "label": "Lodynet",
+            "active": "True",
+            "url": "https://lodynet.cfd/"
+        },
+        "magnetdl_pro": {
+            "label": "MagnetDL",
+            "active": "True",
+            "url": "https://magnetdl.pro/"
+        },
+        "monova_torrentbay_st": {
+            "label": "Monova",
+            "active": "False",
+            "url": "https://monova.torrentbay.st/"
+        },
+        "moviegate": {
+            "label": "Moviegate",
+            "active": "True",
+            "url": "https://moviegate.one/"
+        },
+        "moviztime": {
+            "label": "MovizTime",
+            "active": "False",
+            "url": "https://movtime3.store/"
+        },
+        "mycima": {
+            "label": "Wecima",
+            "active": "True",
+            "url": "https://wecima.gold/"
+        },
+        "narto_drama": {
+            "label": "Narto Drama",
+            "active": "True",
+            "url": "https://narto-drama.com/"
+        },
+        "pakistani": {
+            "label": "Pakistani",
+            "active": "True",
+            "url": "https://pakistani-live.net/"
+        },
+        "pirateiro_io": {
+            "label": "Pirateiro",
+            "active": "True",
+            "url": "https://pirateiro.io/"
+        },
+        "prstej": {
+            "label": "Prstej",
+            "active": "True",
+            "url": "https://wws.brstej.com/"
+        },
+        "qfilm": {
+            "label": "QFilm",
+            "active": "True",
+            "url": "https://a.qfilm.tv/"
+        },
+        "rarbg_to": {
+            "label": "RARBG",
+            "active": "True",
+            "url": "https://rarbg.to/"
+        },
+        "rarbg_torrentbay_st": {
+            "label": "RARBG (.st)",
+            "active": "False",
+            "url": "https://rarbg.torrentbay.st/"
+        },
+        "s3uditv": {
+            "label": "S3uditv",
+            "active": "False",
+            "url": "https://k.s3udi.tv/"
+        },
+        "scnsrc_torrentbay_st": {
+            "label": "ScnSrc",
+            "active": "False",
+            "url": "https://scnsrc.torrentbay.st/"
+        },
+        "shahidu": {
+            "label": "Shahid4u",
+            "active": "False",
+            "url": "https://shiid4u.co/"
+        },
+        "shiid4u_co": {
+            "label": "Shiid4u",
+            "active": "True",
+            "url": "https://shiid4u.co/"
+        },
+        "shahid4u_uno": {
+            "label": "Shahid4u Uno",
+            "active": "False",
+            "url": "https://shahid4u.uno/home/"
+        },
+        "sharework4": {
+            "label": "Sharework",
+            "active": "True",
+            "url": "https://www.sharework4.cc/"
+        },
+        "shoffree": {
+            "label": "Shoffree",
+            "active": "True",
+            "url": "https://sh.shoffree.com/"
+        },
+        "shooflive": {
+            "label": "Shooflive",
+            "active": "False",
+            "url": "https://tv.shooflive.art/"
+        },
+        "shooflive_net": {
+            "label": "Shooflive",
+            "active": "True",
+            "url": "https://shooflive.net/"
+        },
+        "shoofvod": {
+            "label": "Shoofvod",
+            "active": "True",
+            "url": "http://shoofvod.com/"
+        },
+        "shortseris_online": {
+            "label": "ShortSeris",
+            "active": "True",
+            "url": "https://shortseris.online/"
+        },
+        "spacepowerfan": {
+            "label": "Spacepowerfan",
+            "active": "True",
+            "url": "https://spacepowerfan.com/"
+        },
+        "stardima": {
+            "label": "Stardima",
+            "active": "True",
+            "url": "https://w1.stardima.sbs/watch/"
+        },
+        "stripchat": {
+            "label": "Stripchat",
+            "active": "True",
+            "url": "https://stripchat.com/"
+        },
+        "studiotv": {
+            "label": "studio2tv",
+            "active": "True",
+            "url": "https://www.studio2tv.tn/"
+        },
+        "tamilmv_torrentbay_st": {
+            "label": "TamilMV",
+            "active": "True",
+            "url": "https://tamilmv.torrentbay.st/"
+        },
+        "themoviedb_org": {
+            "label": "The Movie Database",
+            "active": "True",
+            "url": "https://www.themoviedb.org/"
+        },
+        "thepiratebay_city": {
+            "label": "The Pirate Bay",
+            "active": "True",
+            "url": "https://piratebay.city/"
+        },
+        "toonsland": {
+            "label": "Toonsland",
+            "active": "True",
+            "url": "https://www.toonsland.site/"
+        },
+        "topcinema": {
+            "label": "TopCinema",
+            "active": "True",
+            "url": "https://web3.topcinema.top/"
+        },
+        "topimdb": {
+            "label": "Top IMDB",
+            "active": "True",
+            "url": "https://www.imdb.com/"
+        },
+        "torrent9_bid": {
+            "label": "Torrent9",
+            "active": "True",
+            "url": "https://www.torrent9.bid/"
+        },
+        "torrent9_torrentbay_st": {
+            "label": "Torrent9",
+            "active": "True",
+            "url": "https://torrent9.torrentbay.st/"
+        },
+        "torrentgalaxy_pw": {
+            "label": "TorrentGalaxy",
+            "active": "True",
+            "url": "https://torrentgalaxy.pw/"
+        },
+        "torrentproject_torrentbay_st": {
+            "label": "TorrentProject",
+            "active": "True",
+            "url": "https://torrentproject.torrentbay.st/"
+        },
+        "torrentz2_torrentbay_st": {
+            "label": "Torrentz2",
+            "active": "False",
+            "url": "https://torrentz2.torrentbay.st/"
+        },
+        "tuktukcinema": {
+            "label": "Tuktukcinema",
+            "active": "True",
+            "url": "https://ww.tuktukcima.com/"
+        },
+        "tvfun": {
+            "label": "tvfun",
+            "active": "True",
+            "url": "https://www.tv-f.com/"
+        },
+        "tvnine": {
+            "label": "Tv96",
+            "active": "True",
+            "url": "https://tv.s96.net/"
+        },
+        "watanflix": {
+            "label": "Watanflix",
+            "active": "True",
+            "url": "https://watanflix.com/"
+        },
+        "watchepisodes_torrentbay_st": {
+            "label": "WatchEp",
+            "active": "False",
+            "url": "https://watchepisodes.torrentbay.st/"
+        },
+        "witanime": {
+            "label": "WitAnime",
+            "active": "True",
+            "url": "https://witanime.com/"
+        },
+        "xhamsterlive": {
+            "label": "xHamsterLive",
+            "active": "True",
+            "url": "https://xhamsterlive.com/"
+        },
+        "x1337x_pro": {
+            "label": "1337x",
+            "active": "True",
+            "url": "https://1337x.pro/"
+        },
+        "xsanime": {
+            "label": "Xsanime",
+            "active": "False",
+            "url": "https://xsaniime.com/"
+        },
+        "yalladrama": {
+            "label": "Yalladrama",
+            "active": "False",
+            "url": "https://ww2.yalladrama.co/"
+        },
+        "yallalive": {
+            "label": "Yallalive",
+            "active": "True",
+            "url": "https://yallalive.sx/"
+        },
+        "videos": {
+            "label": "Videos",
+            "active": "True",
+            "url": "https://www.dailymotion.com"
+        },
+        "en_yts_lu": {
+            "label": "en.yts.lu",
+            "active": "True",
+            "url": "https://en.yts.lu/"
+        },
+        "yts_pro": {
+            "label": "YTS",
+            "active": "True",
+            "url": "https://yts.pro/"
+        },
+        "zone_telechargement_estate": {
+            "label": "Zone Telechargement (.estate)",
+            "active": "True",
+            "cloudflare": "True",
+            "url": "https://www.zone-telechargement.estate/"
+        },
+        "zooqle_io": {
+            "label": "Zooqle",
+            "active": "True",
+            "url": "https://zooqle.app/"
+        }
     }
-  }
 }

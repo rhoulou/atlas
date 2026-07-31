@@ -25,6 +25,7 @@ CAT_SERIES = (URL_MAIN + '/browse/tv', 'showSeries')
 
 URL_SEARCH = (URL_MAIN + '/search/', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
+URL_SEARCH_DRAMAS = ('', 'showSearch')
 
 def load():
     oGui = cGui()
@@ -43,10 +44,17 @@ def load():
 
     oGui.setEndOfDirectory()
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText:
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    if sSearchText.startswith('http'):
+        sUrl = sSearchText
+    else:
+        sSearchText = urllib.parse.unquote(sSearchText)
         sUrl = URL_MAIN + '/search/' + urllib.parse.quote(sSearchText)
         oRequestHandler = cRequestHandler(sUrl)
         sHtmlContent = oRequestHandler.request()
