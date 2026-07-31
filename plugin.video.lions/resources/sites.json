@@ -301,6 +301,16 @@
             "active": "True",
             "url": "https://www.fushaar.com/"
         },
+        "forja_ma": {
+            "label": "Forja",
+            "active": "True",
+            "url": "https://forja.ma/?lang=fr"
+        },
+        "forja_ma_ar": {
+            "label": "Forja AR",
+            "active": "True",
+            "url": "https://forja.ma/?lang=ar"
+        },
         "gateanime": {
             "label": "Gateanime",
             "active": "True",

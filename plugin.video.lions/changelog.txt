@@ -1,4 +1,10 @@
 =====================================================
+version="1.0.88"
+-add forja.ma (SNRT) Moroccan VOD: two sites (Forja / Forja AR) with Films, Séries, Théâtre, Divertissement, Documentaires and Enfants catalogues + search (incl. drama global search); direct free HLS playback via a forja hoster that resolves the signed m3u8 token (vod.forja.ma/snrt)
+-update the aflamin logos to the real Aflamin artwork
+=====================================================
+
+=====================================================
 version="1.0.87"
 -limetorrents: use the site's real search URLs (/search?catname=movies|tv|anime|other&q= / plain ?q=) for the global search categories Movies/Series/Anime/Other/All; search functions accept the sUrl arg passed by global search (no more crash on click)
 =====================================================
