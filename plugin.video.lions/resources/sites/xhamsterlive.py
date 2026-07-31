@@ -109,10 +109,11 @@ def showRooms(sSearch='', sSearchText=''):
         sCountry = room.get('country', '')
         sStatus = room.get('status', '')
         sIsNew = room.get('isNew', False)
-        sHls = room.get('hlsPlaylist', '')
+        sId = room.get('id', '')
+        sHls = 'https://edge-hls.saawsedge.com/hls/{0}/master/{0}_auto.m3u8'.format(sId)
         sIsHd = room.get('isHd', False)
 
-        if sStatus != 'public' or not sHls:
+        if sStatus != 'public' or not sId:
             continue
 
         sTitle = sUsername

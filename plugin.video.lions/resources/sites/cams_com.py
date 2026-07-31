@@ -9,7 +9,7 @@ from resources.lib.gui.gui import cGui
 from resources.lib.handler.inputParameterHandler import cInputParameterHandler
 from resources.lib.handler.outputParameterHandler import cOutputParameterHandler
 from resources.lib.handler.requestHandler import cRequestHandler
-from resources.lib.comaddon import siteManager, addon
+from resources.lib.comaddon import siteManager, addon, dialog
 
 ADDON = addon()
 icons = ADDON.getSetting('defaultIcons')
@@ -114,7 +114,7 @@ def showRooms(sSearch='', sSearchText=''):
         sUsername = room.get('screen_name', '')
         if not sUsername:
             continue
-        if str(room.get('chat_type', '')) in ('0', '3'):
+        if str(room.get('chat_type', '')) != '1':
             continue
 
         sTitle = sUsername
@@ -143,6 +143,15 @@ def showHosters():
     sStreamUrl = oInputParameterHandler.getValue('sStreamUrl')
 
     if not sStreamUrl:
+        oGui.setEndOfDirectory()
+        return
+
+    oRequestHandler = cRequestHandler(sStreamUrl)
+    oRequestHandler.addHeaderEntry('User-Agent', USER_AGENT)
+    oRequestHandler.addHeaderEntry('Referer', URL_MAIN + '/')
+    sContent = oRequestHandler.request()
+    if not sContent or not sContent.strip().startswith('#EXTM3U'):
+        dialog().VSerror('Stream unavailable')
         oGui.setEndOfDirectory()
         return
 
