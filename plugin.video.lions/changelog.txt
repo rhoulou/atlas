@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.77"
+-stripchat/xhamsterlive: thumbnails from https://img.doppiocdn.live/thumbs/{snapshotTimestamp}/{id}
+=====================================================
+
+=====================================================
 version="1.0.76"
 -cams_com: only list live free models with a working preview m3u8 (chat_type=1); verify stream before play
 -stripchat/xhamsterlive: build stream from model id -> https://edge-hls.saawsedge.com/hls/{id}/master/{id}_auto.m3u8 (fixes ad-only videos on doppiocdn)

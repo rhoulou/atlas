@@ -104,12 +104,12 @@ def showRooms(sSearch='', sSearchText=''):
 
     for room in rooms:
         sUsername = room.get('username', '')
-        sThumb = room.get('previewUrlThumbSmall', '')
+        sId = room.get('id', '')
+        sThumb = 'https://img.doppiocdn.live/thumbs/{0}/{1}'.format(room.get('snapshotTimestamp', ''), sId)
         sViewers = room.get('viewersCount', 0)
         sCountry = room.get('country', '')
         sStatus = room.get('status', '')
         sIsNew = room.get('isNew', False)
-        sId = room.get('id', '')
         sHls = 'https://edge-hls.saawsedge.com/hls/{0}/master/{0}_auto.m3u8'.format(sId)
         sIsHd = room.get('isHd', False)
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.lions" name="Lions" version="1.0.76" provider-name="atlas">
+<addon id="plugin.video.lions" name="Lions" version="1.0.77" provider-name="atlas">
     <requires>
     
         <import addon="xbmc.python" version="3.0.0"/>
