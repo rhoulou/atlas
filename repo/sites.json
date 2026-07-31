@@ -481,6 +481,11 @@
       "active": "True",
       "url": "https://www.studio2tv.tn/"
     },
+    "stripchat": {
+      "label": "Stripchat",
+      "active": "True",
+      "url": "https://stripchat.com/"
+    },
     "tamilmv_torrentbay_st": {
       "label": "TamilMV",
       "active": "True",
@@ -565,6 +570,11 @@
       "label": "WitAnime",
       "active": "True",
       "url": "https://witanime.com/"
+    },
+    "xhamsterlive": {
+      "label": "xHamsterLive",
+      "active": "True",
+      "url": "https://xhamsterlive.com/"
     },
     "x1337x_pro": {
       "label": "1337x",

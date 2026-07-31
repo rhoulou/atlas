@@ -1,4 +1,11 @@
 =====================================================
+version="1.0.74"
+-X-Chat is now a submenu with 5 live cam sites: Chaturbate, CamSoda, BongaCams, Stripchat (new), xHamsterLive (new)
+-new stripchat.py: categories (Female/Couples/Male/Trans) via /api/front/models, adaptive HLS via edge-hls.doppiocdn.com, search
+-new xhamsterlive.py: same doppiocdn API pattern, categories + search
+=====================================================
+
+=====================================================
 version="1.0.41"
 -aflamtop: fixed search URL (/search/ -> /?s=), updated logo
 -x1337x_pro: rewritten v1.0.40 (HTML-first cats + AJAX pagination, HTML search + Next links)

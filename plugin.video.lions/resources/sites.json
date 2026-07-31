@@ -476,6 +476,11 @@
       "active": "True",
       "url": "https://w1.stardima.sbs/watch/"
     },
+    "stripchat": {
+      "label": "Stripchat",
+      "active": "True",
+      "url": "https://stripchat.com/"
+    },
     "studiotv": {
       "label": "studio2tv",
       "active": "True",
@@ -565,6 +570,11 @@
       "label": "WitAnime",
       "active": "True",
       "url": "https://witanime.com/"
+    },
+    "xhamsterlive": {
+      "label": "xHamsterLive",
+      "active": "True",
+      "url": "https://xhamsterlive.com/"
     },
     "x1337x_pro": {
       "label": "1337x",

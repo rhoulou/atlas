@@ -72,7 +72,7 @@ class cHome:
 
         oOutputParameterHandler = cOutputParameterHandler()
         oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
-        oGui.addDir('chaturbate', 'load', 'X-Chat', icons + '/LiveTV.png', oOutputParameterHandler)
+        oGui.addDir(SITE_IDENTIFIER, 'showChat', 'X-Chat', icons + '/LiveTV.png', oOutputParameterHandler)
 
         oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
         oGui.addDir(SITE_IDENTIFIER, 'showUsers', self.addons.VSlang(30455), icons + '/User.png', oOutputParameterHandler)
@@ -513,8 +513,27 @@ class cHome:
             db.del_history()
         return True
 
+    def showChat(self):
+
+        oGui = cGui()
+
+        aChatSites = (
+            ('chaturbate', 'Chaturbate', 'sites/chaturbate.png'),
+            ('camsoda', 'CamSoda', 'sites/camsoda.png'),
+            ('bongacams', 'BongaCams', 'sites/bongacams.png'),
+            ('stripchat', 'Stripchat', 'sites/stripchat.png'),
+            ('xhamsterlive', 'xHamsterLive', 'sites/xhamsterlive.png'),
+        )
+
+        for sSiteId, sLabel, sIcon in aChatSites:
+            oOutputParameterHandler = cOutputParameterHandler()
+            oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
+            oGui.addDir(sSiteId, 'load', sLabel, sIcon, oOutputParameterHandler)
+
+        oGui.setEndOfDirectory()
+
     def callpluging(self):
-        
+
         oGui = cGui()
 
         oInputParameterHandler = cInputParameterHandler()
