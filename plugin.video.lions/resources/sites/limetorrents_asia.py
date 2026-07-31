@@ -24,12 +24,15 @@ CAT_FILMS = (URL_MAIN + '/browse-torrents/Movies', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/browse-torrents/TV', 'showSeries')
 CAT_OTHERS = (URL_MAIN + '/browse-torrents/Other', 'showFiles')
 
-URL_SEARCH = (URL_MAIN + '/search.php?q=', 'showSearch')
-URL_SEARCH_SERIES = (URL_MAIN + '/search.php?q=', 'showSeriesSearch')
+URL_SEARCH_MOVIES = (URL_MAIN + '/search?catname=movies&q=', 'showSearch')
+URL_SEARCH_SERIES = (URL_MAIN + '/search?catname=tv&q=', 'showSeriesSearch')
+URL_SEARCH_ANIMS = (URL_MAIN + '/search?catname=anime&q=', 'showSearch')
+URL_SEARCH_DRAMAS = (URL_MAIN + '/search?catname=movies&q=', 'showSearch')
 URL_SEARCH_OTHER = (URL_MAIN + '/search?catname=other&q=', 'showOtherSearch')
 URL_SEARCH_ALL = (URL_MAIN + '/search?q=', 'showAllSearch')
+URL_SEARCH = URL_SEARCH_ALL
+URL_SEARCH_MISC = URL_SEARCH_ALL
 FUNCTION_SEARCH = 'showSearch'
-URL_SEARCH_DRAMAS = ('', 'showSearch')
 FUNCTION_SEARCH_SERIES = 'showSeriesSearch'
 FUNCTION_SEARCH_OTHER = 'showOtherSearch'
 FUNCTION_SEARCH_ALL = 'showAllSearch'
@@ -78,31 +81,52 @@ def showSearch(sSearchText=''):
         sUrl = sSearchText
     else:
         sSearchText = urllib.parse.unquote(sSearchText)
-        sUrl = URL_MAIN + '/search.php?q=' + urllib.parse.quote(sSearchText)
+        sUrl = URL_SEARCH_MOVIES[0] + urllib.parse.quote(sSearchText)
     __fetchAndShow(sUrl, 'showSearch')
 
-def showSeriesSearch():
+def showSeriesSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText:
-        sUrl = URL_MAIN + '/search.php?q=' + urllib.parse.quote(sSearchText)
-        __fetchAndShow(sUrl, 'showSeriesSearch')
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    if sSearchText.startswith('http'):
+        sUrl = sSearchText
+    else:
+        sSearchText = urllib.parse.unquote(sSearchText)
+        sUrl = URL_SEARCH_SERIES[0] + urllib.parse.quote(sSearchText)
+    __fetchAndShow(sUrl, 'showSeriesSearch')
     oGui.setEndOfDirectory()
 
-def showOtherSearch():
+def showOtherSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText:
-        sUrl = URL_MAIN + '/search?catname=other&q=' + urllib.parse.quote(sSearchText)
-        __fetchAndShow(sUrl, 'showOtherSearch')
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    if sSearchText.startswith('http'):
+        sUrl = sSearchText
+    else:
+        sSearchText = urllib.parse.unquote(sSearchText)
+        sUrl = URL_SEARCH_OTHER[0] + urllib.parse.quote(sSearchText)
+    __fetchAndShow(sUrl, 'showOtherSearch')
     oGui.setEndOfDirectory()
 
-def showAllSearch():
+def showAllSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText:
-        sUrl = URL_MAIN + '/search?q=' + urllib.parse.quote(sSearchText)
-        __fetchAndShow(sUrl, 'showAllSearch')
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    if sSearchText.startswith('http'):
+        sUrl = sSearchText
+    else:
+        sSearchText = urllib.parse.unquote(sSearchText)
+        sUrl = URL_SEARCH_ALL[0] + urllib.parse.quote(sSearchText)
+    __fetchAndShow(sUrl, 'showAllSearch')
     oGui.setEndOfDirectory()
 
 def showFilms():

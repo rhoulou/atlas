@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.87"
+-limetorrents: use the site's real search URLs (/search?catname=movies|tv|anime|other&q= / plain ?q=) for the global search categories Movies/Series/Anime/Other/All; search functions accept the sUrl arg passed by global search (no more crash on click)
+=====================================================
+
+=====================================================
 version="1.0.86"
 -fix youtube playback via resolveurl: the resolver hoster no longer appends |verifypeer=false&Referer=... to plugin:// streams (it corrupted plugin.video.youtube's path into "/play/|verifypeer=false&Referer=..." -> Mapping not found)
 =====================================================
