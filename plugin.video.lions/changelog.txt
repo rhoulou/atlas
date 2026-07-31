@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.81"
+-fix aflamin wrong year in labels/search: use the real release year from product metadata (السّنة / Année) instead of the Kinow dateFrom platform date (e.g. MAROCK now 2005, MEKTOUB 1997)
+=====================================================
+
+=====================================================
 version="1.0.80"
 -fix global search (e.g. click an Aflamin drama) showing result count but an empty list: torrent sites no longer call endOfDirectory from search threads (cGui.setEndOfDirectory skips while window search=true)
 -remove redundant setEndOfDirectory in the 12 torrent sites' showSearch

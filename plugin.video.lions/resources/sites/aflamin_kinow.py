@@ -134,7 +134,7 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
                 sThumb = _pickCover(oProduct.get('images', []))
                 sDesc = oProduct.get('description') or ''
 
-                sYear = _pickYear(oProduct.get('dateFrom'))
+                sYear = _getYear(oProduct)
                 if sYear:
                     sLabel = '%s (%s)' % (sTitle, sYear)
                 else:
@@ -190,6 +190,14 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
             if not sCover:
                 sCover = sSource
         return sCover
+
+    def _getYear(oProduct):
+        for oMeta in oProduct.get('metadata') or []:
+            if oMeta.get('name') in ('السّنة', 'Année'):
+                oMatch = re.search(r'\b(19\d{2}|20\d{2})\b', oMeta.get('value') or '')
+                if oMatch and 1900 < int(oMatch.group(1)) <= 2100:
+                    return oMatch.group(1)
+        return _pickYear(oProduct.get('dateFrom'))
 
     def _pickYear(sDateFrom):
         if sDateFrom and len(sDateFrom) >= 4:
