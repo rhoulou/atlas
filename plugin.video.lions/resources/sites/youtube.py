@@ -3,11 +3,15 @@ import re
 import requests
 import urllib.parse
 
+import xbmc
+import xbmcaddon
+
 from resources.lib.gui.hoster import cHosterGui
 from resources.lib.gui.gui import cGui
+from resources.lib.gui.guiElement import cGuiElement
 from resources.lib.handler.inputParameterHandler import cInputParameterHandler
 from resources.lib.handler.outputParameterHandler import cOutputParameterHandler
-from resources.lib.comaddon import VSlog, siteManager, addon
+from resources.lib.comaddon import VSlog, siteManager, addon, dialog
 
 ADDON = addon()
 icons = ADDON.getSetting('defaultIcons')
@@ -172,6 +176,26 @@ def __toSeconds(sLength):
     return iTotal
 
 
+def __getVideoId(sUrl):
+    if not sUrl:
+        return ''
+    m = re.search(r'[?&]v=([\w-]{11})', sUrl)
+    if m:
+        return m.group(1)
+    m = re.search(r'youtu\.be/([\w-]{11})', sUrl)
+    return m.group(1) if m else ''
+
+
+def __hasYouTubePlayer():
+    for sAddonId in ('plugin.video.youtube', 'plugin.video.invidious'):
+        try:
+            xbmcaddon.Addon(sAddonId)
+            return True
+        except Exception:
+            continue
+    return False
+
+
 def showHosters():
     oGui = cGui()
     oInputParameterHandler = cInputParameterHandler()
@@ -179,11 +203,71 @@ def showHosters():
     sMovieTitle = oInputParameterHandler.getValue('sMovieTitle')
 
     sEmbedUrl = sUrl.split('|')[0]
-    oHoster = cHosterGui().checkHoster(sEmbedUrl)
+
+    if not __hasYouTubePlayer():
+        oOutputParameterHandler = cOutputParameterHandler()
+        oOutputParameterHandler.addParameter('siteUrl', sEmbedUrl)
+        oOutputParameterHandler.addParameter('sMovieTitle', sMovieTitle)
+
+        oGuiElement = cGuiElement()
+        oGuiElement.setSiteName(SITE_IDENTIFIER)
+        oGuiElement.setFunction('playExternalYoutube')
+        oGuiElement.setTitle('[COLOR red]YouTube player not found[/COLOR] - choose an option')
+
+        oGui.addFolder(oGuiElement, oOutputParameterHandler, False)
+        oGui.setEndOfDirectory()
+        return
+
+    oHoster = None
+    try:
+        import resolveurl
+        oHmf = resolveurl.HostedMediaFile(url=sEmbedUrl)
+        if oHmf.valid_url():
+            oHoster = cHosterGui().getHoster('resolver')
+            sHost = sEmbedUrl.split('/')[2].replace('www.', '').split('.')[0].upper()
+            oHoster.setRealHost(sHost)
+    except Exception:
+        pass
+
+    if not oHoster:
+        oHoster = cHosterGui().checkHoster(sEmbedUrl)
 
     if oHoster:
         oHoster.setDisplayName(sMovieTitle)
         oHoster.setFileName(sMovieTitle)
         cHosterGui().showHoster(oGui, oHoster, sEmbedUrl, '')
 
+    oGui.setEndOfDirectory()
+
+
+def playExternalYoutube():
+    oInputParameterHandler = cInputParameterHandler()
+    sUrl = oInputParameterHandler.getValue('siteUrl')
+
+    videoID = __getVideoId(sUrl)
+
+    aOptions = []
+    aActions = []
+    if xbmc.getCondVisibility('system.platform.android'):
+        aOptions.append('Play in YouTube app')
+        aActions.append('app')
+    aOptions.append('Install plugin.video.youtube')
+    aActions.append('install_youtube')
+    aOptions.append('Install plugin.video.invidious')
+    aActions.append('install_invidious')
+    aOptions.append('Cancel')
+    aActions.append('cancel')
+
+    ret = dialog().VSselect(aOptions, SITE_NAME)
+    if ret < 0 or aActions[ret] == 'cancel':
+        pass
+    elif aActions[ret] == 'app':
+        if videoID:
+            xbmc.executebuiltin('StartAndroidActivity("com.google.android.youtube","android.intent.action.VIEW","vnd.youtube:%s")' % videoID)
+    elif aActions[ret] == 'install_youtube':
+        xbmc.executebuiltin('InstallAddon(plugin.video.youtube)')
+    elif aActions[ret] == 'install_invidious':
+        xbmc.executebuiltin('InstallAddon(plugin.video.invidious)')
+
+    oGui = cGui()
     oGui.setEndOfDirectory()
