@@ -80,7 +80,6 @@ def showSearch(sSearchText=''):
         sSearchText = urllib.parse.unquote(sSearchText)
         sUrl = URL_MAIN + '/search.php?q=' + urllib.parse.quote(sSearchText)
     __fetchAndShow(sUrl, 'showSearch')
-    oGui.setEndOfDirectory()
 
 def showSeriesSearch():
     oGui = cGui()

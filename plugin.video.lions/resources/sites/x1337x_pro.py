@@ -62,7 +62,6 @@ def showSearch(sSearchText=''):
         oRequestHandler = cRequestHandler(sUrl)
         sHtmlContent = oRequestHandler.request()
         __showTorrents(sHtmlContent, sUrl)
-        oGui.setEndOfDirectory()
 
 def showFilms():
     oInputParameterHandler = cInputParameterHandler()

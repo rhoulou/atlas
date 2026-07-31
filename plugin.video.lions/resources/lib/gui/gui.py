@@ -637,6 +637,8 @@ class cGui:
         return sItemUrl
 
     def setEndOfDirectory(self, forceViewMode=False):
+        if window(10101).getProperty('search') == 'true':
+            return
         iHandler = cPluginHandler().getPluginHandle()
 
         if not self.listing:
