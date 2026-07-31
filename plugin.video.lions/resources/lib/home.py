@@ -523,6 +523,7 @@ class cHome:
             ('bongacams', 'BongaCams', 'sites/bongacams.png'),
             ('stripchat', 'Stripchat', 'sites/stripchat.png'),
             ('xhamsterlive', 'xHamsterLive', 'sites/xhamsterlive.png'),
+            ('cams_com', 'cams.com', 'sites/cams.png'),
         )
 
         for sSiteId, sLabel, sIcon in aChatSites:

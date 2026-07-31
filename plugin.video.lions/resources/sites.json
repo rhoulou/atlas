@@ -151,6 +151,11 @@
       "active": "True",
       "url": "https://www.btolat.com/"
     },
+    "cams_com": {
+      "label": "cams.com",
+      "active": "True",
+      "url": "https://www.cams.com/"
+    },
     "camsoda": {
       "label": "CamSoda",
       "active": "True",
