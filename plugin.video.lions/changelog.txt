@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.86"
+-fix youtube playback via resolveurl: the resolver hoster no longer appends |verifypeer=false&Referer=... to plugin:// streams (it corrupted plugin.video.youtube's path into "/play/|verifypeer=false&Referer=..." -> Mapping not found)
+=====================================================
+
+=====================================================
 version="1.0.85"
 -youtube search: when no player addon (plugin.video.youtube / plugin.video.invidious) is installed, playing a result now offers a chooser: play in the native YouTube app (Android) or install one of the two player addons
 -youtube search: when a player addon is installed, links are passed to resolveurl first (falls back to the built-in youtube hoster)

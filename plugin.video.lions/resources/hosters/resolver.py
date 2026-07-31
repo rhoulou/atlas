@@ -25,7 +25,8 @@ class cHoster(iHoster):
                 stream_url = hmf.resolve()
                 if stream_url:
                     if '|' not in stream_url:
-                        stream_url = stream_url + '|verifypeer=false&Referer=' + self._url.split('|')[0].split('/e/')[0] + '/'
+                        if stream_url.startswith(('http://', 'https://')):
+                            stream_url = stream_url + '|verifypeer=false&Referer=' + self._url.split('|')[0].split('/e/')[0] + '/'
                     return True, stream_url
         except Exception as e:
             VSlog('Resolver error: %s' % str(e))
