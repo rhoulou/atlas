@@ -1,4 +1,11 @@
 =====================================================
+version="1.0.82"
+-split global search videos.py into two site sections: OK.RU (ok_ru.py) and Dailymotion (dailymotion.py)
+-videos search now requires all words of the title (case-insensitive, exact "lalla hobi" instead of single-word partials)
+-movie/drama searches skip results shorter than 30 min (series searches keep them)
+=====================================================
+
+=====================================================
 version="1.0.81"
 -fix aflamin wrong year in labels/search: use the real release year from product metadata (السّنة / Année) instead of the Kinow dateFrom platform date (e.g. MAROCK now 2005, MEKTOUB 1997)
 =====================================================

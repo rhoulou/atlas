@@ -611,8 +611,13 @@
             "active": "True",
             "url": "https://yallalive.sx/"
         },
-        "videos": {
-            "label": "Videos",
+        "ok_ru": {
+            "label": "OK.RU",
+            "active": "True",
+            "url": "https://ok.ru"
+        },
+        "dailymotion": {
+            "label": "Dailymotion",
             "active": "True",
             "url": "https://www.dailymotion.com"
         },
