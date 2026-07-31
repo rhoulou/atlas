@@ -59,6 +59,21 @@ def _fixSslUrl(url):
     return url
 
 
+def _searchKeywords(sUrl):
+    oMatch = re.search(r'keywords=([^&\s]+)', sUrl)
+    if not oMatch:
+        return []
+    sQuery = urllib.parse.unquote_plus(oMatch.group(1))
+    return [w.lower() for w in sQuery.split() if not re.match(r'^\d{4}$', w)]
+
+
+def _matchesSearch(sTitle, aKeywords):
+    if not aKeywords:
+        return True
+    sTitleLower = sTitle.lower()
+    return all(w in sTitleLower for w in aKeywords)
+
+
 def load():
     oGui = cGui()
     addons = addon()
@@ -162,6 +177,7 @@ def showMovies(sSearch=''):
 
     oParser = cParser()
     aResult = oParser.parse(sHtmlContent, sPattern)
+    aKeywords = _searchKeywords(sUrl)
 
     if aResult[0]:
         oOutputParameterHandler = cOutputParameterHandler()
@@ -175,6 +191,8 @@ def showMovies(sSearch=''):
             sTitle = sTitle.replace("WEBRip", "").replace("HDTV", "").replace("BDRip", "")
             sTitle = sTitle.replace("HDCAM", "").replace("HDTC", "").replace("HC", "")
             sTitle = sTitle.replace("Full HD", "").replace("انمي", "").strip()
+            if not _matchesSearch(sTitle, aKeywords):
+                continue
 
             sUrl2 = aEntry[0]
             sThumb = _fixSslUrl(aEntry[2])

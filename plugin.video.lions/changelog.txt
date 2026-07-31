@@ -1,4 +1,10 @@
 =====================================================
+version="1.0.79"
+-new aflamin_fr.py: Aflamin French version (aflamin.com/fr); shared Kinow core in aflamin_kinow.py
+-animezid/qfilm: search now drops results that only match a 4-digit year (skips \d{4} noise)
+=====================================================
+
+=====================================================
 version="1.0.78"
 -new aflamin_com.py: Moroccan drama catalogue from aflamin.com (Kinow GraphQL), category listing + paginated dramas; click runs cat-9 global search (videos ok.ru/Dailymotion + 12 torrent sites)
 =====================================================
