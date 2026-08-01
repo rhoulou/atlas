@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.93"
+-shahid.mbc.net: license server (DRMtoday) was rejecting the Widevine request with 403 - the playout's restrictionsToken (JWT) is now attached to the license call as the x-dt-auth-token header, which DRMtoday uses to authorize Shahid licenses
+=====================================================
+
+=====================================================
 version="1.0.92"
 -player: before starting a DRM stream (e.g. shahid.mbc.net), auto-install the Widevine CDM via script.module.inputstreamhelper if missing - fixes playback that previously failed with "OpenDRMSystem failed / libwidevinecdm.so not found"; works on Android (built-in), Windows, Linux/Flatpak, LibreELEC/CoreELEC; the addon already depended on inputstreamhelper but never invoked it
 =====================================================

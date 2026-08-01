@@ -13,7 +13,7 @@ icons = ADDON.getSetting('defaultIcons')
 class cHosterGui:
     SITE_NAME = 'cHosterGui'
     ADDON = addon()
-    def showHoster(self, oGui, oHoster, sMediaUrl, sThumbnail, bGetRedirectUrl=False):
+    def showHoster(self, oGui, oHoster, sMediaUrl, sThumbnail, bGetRedirectUrl=False, sDrmLicenseKey=''):
         oHoster.setUrl(sMediaUrl)
         oOutputParameterHandler = cOutputParameterHandler()
         oInputParameterHandler = cInputParameterHandler()
@@ -99,7 +99,8 @@ class cHosterGui:
 
         # gestion DRM (inputstream.adaptive)
         sDrmType = oInputParameterHandler.getValue('sDrmType')
-        sDrmLicenseKey = oInputParameterHandler.getValue('sDrmLicenseKey')
+        if not sDrmLicenseKey:
+            sDrmLicenseKey = oInputParameterHandler.getValue('sDrmLicenseKey')
         if sDrmType:
             oOutputParameterHandler.addParameter('sDrmType', sDrmType)
         if sDrmLicenseKey:

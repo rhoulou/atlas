@@ -242,7 +242,11 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
             oHoster = cHosterGui().getHoster('lien_direct')
             oHoster.setDisplayName(sTitle)
             oHoster.setFileName(sTitle)
-            cHosterGui().showHoster(oGui, oHoster, sMediaUrl, sThumb)
+            sLicense = DRM_LICENSE_KEY
+            sRestrictionsToken = oPlayout.get('restrictionsToken') or ''
+            if sRestrictionsToken:
+                sLicense = '%s|x-dt-auth-token=%s' % (DRM_LICENSE_KEY, sRestrictionsToken)
+            cHosterGui().showHoster(oGui, oHoster, sMediaUrl, sThumb, sDrmLicenseKey=sLicense)
         except Exception as e:
             VSlog('shahid: showPlay failed (' + str(e) + ')')
             dialog().VSinfo('[COLOR red]Error resolving stream[/COLOR]', sSiteName)
