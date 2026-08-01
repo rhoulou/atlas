@@ -130,6 +130,14 @@ class cPlayer(xbmc.Player):
                 else:
                     item.setProperty('inputstream.adaptive.manifest_type', 'mpd')
                 if self.sDrmType and self.sDrmLicenseKey:
+                    try:
+                        from inputstreamhelper import Helper
+                        sProtocol = 'hls' if '.m3u8' in sUrl else 'mpd'
+                        if not Helper(sProtocol, drm=self.sDrmType).check_inputstream():
+                            dialog().VSerror('Widevine CDM is required to play this stream')
+                            return
+                    except Exception as e:
+                        VSlog('player: inputstreamhelper check failed (' + str(e) + ')')
                     item.setProperty('inputstream.adaptive.license_type', self.sDrmType)
                     item.setProperty('inputstream.adaptive.license_key', self.sDrmLicenseKey)
                 xbmcplugin.setResolvedUrl(sPluginHandle, True, listitem=item)
