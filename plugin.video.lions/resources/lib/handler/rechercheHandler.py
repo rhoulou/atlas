@@ -98,7 +98,7 @@ class cRechercheHandler:
         try:
             plugin = __import__('resources.sites.%s' % sName, fromlist=[sName])
             pluginData['identifier'] = plugin.SITE_IDENTIFIER
-            pluginData['name'] = plugin.SITE_NAME
+            pluginData['name'] = siteManager().getSiteName(sName)
             pluginData['search'] = getattr(plugin, sSearch)
             return pluginData
         except Exception as e:

@@ -8,7 +8,7 @@ from resources.lib.search import cSearch
 from resources.lib.handler.pluginHandler import cPluginHandler
 from resources.lib.handler.inputParameterHandler import cInputParameterHandler
 from resources.lib.handler.outputParameterHandler import cOutputParameterHandler
-from resources.lib.comaddon import addon, window, addon, VSlog
+from resources.lib.comaddon import addon, window, addon, VSlog, siteManager
 
 SITE_IDENTIFIER = 'cHome'
 SITE_NAME = 'Home'
@@ -524,18 +524,19 @@ class cHome:
         oGui = cGui()
 
         aChatSites = (
-            ('chaturbate', 'Chaturbate', 'sites/chaturbate.png'),
-            ('camsoda', 'CamSoda', 'sites/camsoda.png'),
-            ('bongacams', 'BongaCams', 'sites/bongacams.png'),
-            ('stripchat', 'Stripchat', 'sites/stripchat.png'),
-            ('xhamsterlive', 'xHamsterLive', 'sites/xhamsterlive.png'),
-            ('cams_com', 'cams.com', 'sites/cams.png'),
+            ('chaturbate', 'sites/chaturbate.png'),
+            ('camsoda', 'sites/camsoda.png'),
+            ('bongacams', 'sites/bongacams.png'),
+            ('stripchat', 'sites/stripchat.png'),
+            ('xhamsterlive', 'sites/xhamsterlive.png'),
+            ('cams_com', 'sites/cams.png'),
         )
 
-        for sSiteId, sLabel, sIcon in aChatSites:
+        oSitesManager = siteManager()
+        for sSiteId, sIcon in aChatSites:
             oOutputParameterHandler = cOutputParameterHandler()
             oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
-            oGui.addDir(sSiteId, 'load', sLabel, sIcon, oOutputParameterHandler)
+            oGui.addDir(sSiteId, 'load', oSitesManager.getSiteName(sSiteId), sIcon, oOutputParameterHandler)
 
         oGui.setEndOfDirectory()
 
@@ -544,31 +545,32 @@ class cHome:
         oGui = cGui()
 
         aTorrentSites = (
-            ('thepiratebay_city', 'The Pirate Bay', 'sites/thepiratebay_city.png'),
-            ('rarbg_to', 'RARBG', 'sites/rarbg_to.png'),
-            ('torrent911_app', 'Torrent911', 'sites/torrent911_app.png'),
-            ('x1337x_pro', '1337x', 'sites/x1337x_pro.png'),
-            ('zooqle_io', 'Zooqle', 'sites/zooqle_io.png'),
-            ('limetorrents_asia', 'Limetorrents', 'sites/limetorrents_asia.png'),
-            ('magnetdl_pro', 'MagnetDL', 'sites/magnetdl_pro.png'),
-            ('eztvx_to', 'EZTV', 'sites/eztvx_to.png'),
-            ('en_yts_lu', 'en.yts.lu', 'sites/en_yts_lu.png'),
-            ('yts_pro', 'YTS', 'sites/yts_pro.png'),
-            ('extranet_torrentbay_st', 'ExtraNet', 'sites/extranet_torrentbay_st.png'),
-            ('extratorrent_torrentbay_st', 'ExtraTorrent', 'sites/extratorrent_torrentbay_st.png'),
-            ('ilcorsaronero_torrentbay_st', 'IlCorSaRoNeRo', 'sites/ilcorsaronero_torrentbay_st.png'),
-            ('torrent9_bid', 'Torrent9', 'sites/torrent9_bid.png'),
-            ('torrent9_to', 'Torrent9 (.to)', 'sites/torrent9_to.png'),
-            ('torrent9_torrentbay_st', 'Torrent9', 'sites/torrent9_torrentbay_st.png'),
-            ('libgen_torrentbay_st', 'LibGen', 'sites/libgen_torrentbay_st.png'),
-            ('katkoute', 'Katkoute', 'sites/katkoute.png'),
-            ('kat_cc', 'KAT', 'sites/kat_cc.png'),
+            ('thepiratebay_city', 'sites/thepiratebay_city.png'),
+            ('rarbg_to', 'sites/rarbg_to.png'),
+            ('torrent911_app', 'sites/torrent911_app.png'),
+            ('x1337x_pro', 'sites/x1337x_pro.png'),
+            ('zooqle_io', 'sites/zooqle_io.png'),
+            ('limetorrents_asia', 'sites/limetorrents_asia.png'),
+            ('magnetdl_pro', 'sites/magnetdl_pro.png'),
+            ('eztvx_to', 'sites/eztvx_to.png'),
+            ('en_yts_lu', 'sites/en_yts_lu.png'),
+            ('yts_pro', 'sites/yts_pro.png'),
+            ('extranet_torrentbay_st', 'sites/extranet_torrentbay_st.png'),
+            ('extratorrent_torrentbay_st', 'sites/extratorrent_torrentbay_st.png'),
+            ('ilcorsaronero_torrentbay_st', 'sites/ilcorsaronero_torrentbay_st.png'),
+            ('torrent9_bid', 'sites/torrent9_bid.png'),
+            ('torrent9_to', 'sites/torrent9_to.png'),
+            ('torrent9_torrentbay_st', 'sites/torrent9_torrentbay_st.png'),
+            ('libgen_torrentbay_st', 'sites/libgen_torrentbay_st.png'),
+            ('katkoute', 'sites/katkoute.png'),
+            ('kat_cc', 'sites/kat_cc.png'),
         )
 
-        for sSiteId, sLabel, sIcon in aTorrentSites:
+        oSitesManager = siteManager()
+        for sSiteId, sIcon in aTorrentSites:
             oOutputParameterHandler = cOutputParameterHandler()
             oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
-            oGui.addDir(sSiteId, 'load', sLabel, sIcon, oOutputParameterHandler)
+            oGui.addDir(sSiteId, 'load', oSitesManager.getSiteName(sSiteId), sIcon, oOutputParameterHandler)
 
         oGui.setEndOfDirectory()
 

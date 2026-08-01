@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.103"
+-Site names now shown as the full domain (e.g. aflaam.com -> aflaam_com) everywhere in the GUI (Sources, category lists, global search, Torrents/X-Chat, Sites Manager)
+-Site names are localized through the language files (English/French/Arabic): each of the 129 sites has its own string id (30422154-30422282) so names can be translated per language
+=====================================================
+=====================================================
 version="1.0.102"
 -New Torrents home category: groups all 19 working torrent sites (The Pirate Bay, RARBG, Torrent911, 1337x, Zooqle, Limetorrents, MagnetDL, EZTV, YTS x2, ExtraNet, ExtraTorrent, IlCorSaRoNeRo, Torrent9 x3, LibGen, Katkoute, KAT) in one submenu with icons
 -KAT (kat_cc) site icon added (kat.cc official logo)

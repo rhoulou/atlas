@@ -50,7 +50,7 @@ class cPluginHandler:
     def __importPlugin(self, sName, sLabel=""):
         try:
             exec("from resources.sites import " + sName, globals())
-            exec("sSiteName = " + sName + ".SITE_NAME", globals())
+            sSiteName = siteManager().getSiteName(sName)
             if sLabel:
                 exec("sSearch = " + sName + "." + sLabel, globals())
                 return sSearch[0], sSearch[1], sSiteName
@@ -74,7 +74,7 @@ class cPluginHandler:
 
         aPlugins = []
         for sFileName in aFileNames:
-            if not sitesManager.isEnable(sFileName):    # Site désactivé par la team
+            if not sitesManager.isEnable(sFileName):    # Site dï¿½sactivï¿½ par la team
                 continue
             if force or sitesManager.isActive(sFileName):
                 # wir versuchen das plugin zu importieren
@@ -106,7 +106,7 @@ class cPluginHandler:
 
         aPlugins = []
         for sFileName in aFileNames:
-            if not sitesManager.isEnable(sFileName):    # Site désactivé par la team
+            if not sitesManager.isEnable(sFileName):    # Site dï¿½sactivï¿½ par la team
                 continue
             # wir versuchen das plugin zu importieren
             aPlugin = self.__importPlugin(sFileName)

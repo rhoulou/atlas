@@ -505,6 +505,16 @@ class siteManager:
 
     def getUrlMain2(self, sourceName):
         return str(self.getDefaultProperty(sourceName, self.URL_MAIN2))
+
+    # Nom du site affiché dans la GUI (localisé via les fichiers de langue si un id lng existe)
+    def getSiteName(self, sourceName):
+        lng = self.getDefaultProperty(sourceName, 'lng')
+        if lng and str(lng).isdigit():
+            return addon().VSlang(int(lng))
+        label = self.getDefaultProperty(sourceName, self.LABEL)
+        if label:
+            return str(label)
+        return sourceName
     def disableAll(self):
         for sourceName in self.data[self.SITES]:
             self.setActive(sourceName, False)
