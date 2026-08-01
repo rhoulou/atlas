@@ -27,11 +27,18 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
     URL_SEARCH_DRAMAS = URL_SEARCH
     FUNCTION_SEARCH = 'showSearch'
 
+    sLangUpper = sLang.upper()
+    sProfileId = 'f87e79c0-8cba-11f1-a579-c77f29a076a2'
+    sProfileKey = '{"ageRestriction":false,"isAdult":true}'
+
     def _fetch(sUrl):
         oRequest = cRequestHandler(sUrl)
         oRequest.addHeaderEntry('user-agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36')
-        oRequest.addHeaderEntry('language', 'AR')
-        oRequest.addHeaderEntry('accept-language', 'ar')
+        oRequest.addHeaderEntry('language', sLangUpper)
+        oRequest.addHeaderEntry('accept-language', sLang)
+        oRequest.addHeaderEntry('uuid', 'web')
+        oRequest.addHeaderEntry('profile', '{"ageRestriction":false,"id":"' + sProfileId + '","master":true}')
+        oRequest.addHeaderEntry('profile-key', sProfileKey)
         return oRequest.request()
 
     def _api(sPath, dParams):
@@ -108,7 +115,7 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
                     continue
                 sTitle = oItem.get('title') or ''
                 if isinstance(sTitle, dict):
-                    sTitle = sTitle.get('ar') or ''
+                    sTitle = sTitle.get(sLang) or sTitle.get('ar') or ''
                 sThumb = _img((oItem.get('image') or {}).get('thumbnailImage') or '')
                 sDesc = oItem.get('description') or oItem.get('shortDescription') or ''
 
@@ -255,8 +262,85 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
 
     def showSearch(sSearchText=''):
         oGui = cGui()
-        oGui.addText(sSiteIdentifier, '[COLOR gray]Search not available for this source[/COLOR]')
+        if not sSearchText:
+            sSearchText = oGui.showKeyBoard()
+            if not sSearchText:
+                oGui.setEndOfDirectory()
+                return
+
+        for sTab, sLabel in (('TV_SHOWS', _searchLabelShows()), ('MOVIES', _searchLabelMovies())):
+            oOutputParameterHandler = cOutputParameterHandler()
+            oOutputParameterHandler.addParameter('sSearchText', sSearchText)
+            oOutputParameterHandler.addParameter('sTab', sTab)
+            oGui.addDir(sSiteIdentifier, 'showSearchTab', sLabel, icons + '/Search.png', oOutputParameterHandler)
+
         oGui.setEndOfDirectory()
+
+    def showSearchTab():
+        oGui = cGui()
+        oInputParameterHandler = cInputParameterHandler()
+        sSearchText = oInputParameterHandler.getValue('sSearchText')
+        sTab = oInputParameterHandler.getValue('sTab')
+        sPage = oInputParameterHandler.getValue('sPage')
+        iPage = int(sPage) if sPage else 0
+
+        try:
+            dJson = _api('/search/' + sTab, {'name': sSearchText, 'pageNumber': iPage, 'pageSize': PAGE_SIZE})
+            for oItem in dJson.get('productList') or []:
+                sId = oItem.get('id')
+                if not sId:
+                    continue
+                sTitle = oItem.get('title') or ''
+                if isinstance(sTitle, dict):
+                    sTitle = sTitle.get(sLang) or sTitle.get('ar') or ''
+                sThumb = _img((oItem.get('image') or {}).get('thumbnailImage') or '')
+                sDesc = oItem.get('description') or oItem.get('shortDescription') or ''
+
+                oOutputParameterHandler = cOutputParameterHandler()
+                oOutputParameterHandler.addParameter('siteUrl', sId)
+                oOutputParameterHandler.addParameter('sTitle', sTitle)
+                oOutputParameterHandler.addParameter('sThumb', sThumb)
+                oOutputParameterHandler.addParameter('sDrmType', DRM_TYPE)
+                oOutputParameterHandler.addParameter('sDrmLicenseKey', DRM_LICENSE_KEY)
+
+                if oItem.get('productType') == 'SHOW':
+                    oGui.addDrama(sSiteIdentifier, 'showContent', sTitle,
+                                  sThumb if sThumb else icons + '/TVShows.png', sThumb, sDesc,
+                                  oOutputParameterHandler)
+                elif oItem.get('productType') == 'MOVIE':
+                    oGui.addMovie(sSiteIdentifier, 'showPlay', sTitle,
+                                  sThumb if sThumb else icons + '/Movies.png', sThumb, sDesc,
+                                  oOutputParameterHandler)
+
+            if not dJson.get('productList'):
+                oGui.addText(sSiteIdentifier, '[COLOR gray]No results[/COLOR]')
+
+            if dJson.get('hasMore'):
+                oOutputParameterHandler = cOutputParameterHandler()
+                oOutputParameterHandler.addParameter('sSearchText', sSearchText)
+                oOutputParameterHandler.addParameter('sTab', sTab)
+                oOutputParameterHandler.addParameter('sPage', str(iPage + 1))
+                oGui.addDir(sSiteIdentifier, 'showSearchTab', '[COLOR teal]Next >>>[/COLOR]',
+                            icons + '/Next.png', oOutputParameterHandler)
+        except Exception as e:
+            VSlog('shahid: showSearchTab failed (' + str(e) + ')')
+            oGui.addText(sSiteIdentifier, '[COLOR red]Error loading search results[/COLOR]')
+
+        oGui.setEndOfDirectory()
+
+    def _searchLabelShows():
+        if sLang == 'ar':
+            return 'مسلسلات'
+        if sLang == 'fr':
+            return 'Séries'
+        return 'TV Shows'
+
+    def _searchLabelMovies():
+        if sLang == 'ar':
+            return 'أفلام'
+        if sLang == 'fr':
+            return 'Films'
+        return 'Movies'
 
     return {
         'SITE_IDENTIFIER': sSiteIdentifier,
@@ -273,4 +357,5 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
         'showEpisodes': showEpisodes,
         'showPlay': showPlay,
         'showSearch': showSearch,
+        'showSearchTab': showSearchTab,
     }

@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.95"
+-shahid.mbc.net: catalog now localizes per instance (ar/fr/en) - the API language/accept-language headers are derived from the site language instead of being hardcoded to Arabic, so AR/EN/FR show the same catalog with titles in each language; search is now enabled (TV Shows / Movies tabs) via the api3.shahid.net /search/{tab} endpoint, which required the uuid/profile/profile-key headers captured from the official player
+=====================================================
+
+=====================================================
 version="1.0.94"
 -shahid.mbc.net: inputstream.adaptive v21.5+ rejected the 2-block license_key ("Wrong '|' blocks in license URL...") - the license string now uses the 4-block form URL|Headers|Post-Data|Response-Data, sending the x-dt-auth-token header plus the raw Widevine challenge (R{SSM}) and expecting a raw license response (R)
 =====================================================
