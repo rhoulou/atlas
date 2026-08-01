@@ -2,6 +2,7 @@
 # zombi https://github.com/zombiB/zombi-addons/
 
 import re
+import urllib.parse
 	
 from resources.lib.gui.hoster import cHosterGui
 from resources.lib.gui.gui import cGui
@@ -24,8 +25,8 @@ URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
 ANIM_MOVIES = (URL_MAIN + '/%d8%a3%d9%81%d9%84%d8%a7%d9%85/', 'showMovies')
 ANIM_NEWS = (URL_MAIN + '/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/', 'showSeries')
 
-URL_SEARCH_ANIMS = (URL_MAIN + '/?s=', 'showSeries')
-FUNCTION_SEARCH = 'showSeries'
+URL_SEARCH_ANIMS = ('', 'showSearch')
+FUNCTION_SEARCH = 'showSearch'
  
 def load():
     oGui = cGui()
@@ -42,12 +43,12 @@ def load():
  
     oGui.setEndOfDirectory()
  
-def showSearch():
+def showSearch(sSearchText = ''):
     oGui = cGui()
- 
-    sSearchText = oGui.showKeyBoard()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
     if sSearchText:
-        sUrl = URL_MAIN + '/?s='+sSearchText
+        sUrl = URL_MAIN + '/search/?asp=1&s_keyword=' + urllib.parse.quote(sSearchText) + '&s_orderby=popular&s_order=desc'
         showSeries(sUrl)
         oGui.setEndOfDirectory()
         return

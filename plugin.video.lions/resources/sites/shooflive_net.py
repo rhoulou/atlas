@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'shooflive_net'
 SITE_NAME = 'Shooflive'
 SITE_DESC = 'arabic vod'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 MOVIE_FOREIGN = (URL_MAIN + '/foreign-movies/', 'showMovies')
 MOVIE_TURKISH = (URL_MAIN + '/turkish-movies/', 'showMovies')
@@ -34,7 +34,7 @@ SERIE_ASIAN = (URL_MAIN + '/asian-series/', 'showSeries')
 SERIE_DUBBED = (URL_MAIN + '/dubbed-series/', 'showSeries')
 SERIE_RAMADAN = (URL_MAIN + '/ramadan-series-2026/', 'showSeries')
 
-URL_SEARCH = (URL_MAIN + '/?s=', 'showSearch')
+URL_SEARCH = (URL_MAIN + '/search/', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 def load():
@@ -99,7 +99,7 @@ def showSearch():
 
     sSearchText = oGui.showKeyBoard()
     if sSearchText:
-        sUrl = URL_MAIN + '/?s=' + sSearchText
+        sUrl = URL_MAIN + '/search/' + sSearchText + '/'
         _listItems(sUrl, oGui)
         oGui.setEndOfDirectory()
         return

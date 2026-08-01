@@ -511,11 +511,6 @@
             "active": "True",
             "url": "https://spacepowerfan.com/"
         },
-        "stardima": {
-            "label": "Stardima",
-            "active": "True",
-            "url": "https://w1.stardima.sbs/watch/"
-        },
         "stripchat": {
             "label": "Stripchat",
             "active": "True",
@@ -525,11 +520,6 @@
             "label": "studio2tv",
             "active": "True",
             "url": "https://www.studio2tv.tn/"
-        },
-        "tamilmv_torrentbay_st": {
-            "label": "TamilMV",
-            "active": "True",
-            "url": "https://tamilmv.torrentbay.st/"
         },
         "themoviedb_org": {
             "label": "The Movie Database",

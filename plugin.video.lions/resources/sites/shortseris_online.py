@@ -25,7 +25,7 @@ URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
 
 SERIES_ALL = (URL_MAIN + 'index.php', 'showSeries')
 FUNCTION_SEARCH = 'showSeries'
-URL_SEARCH_SERIES = (URL_MAIN + 'search.php?q=%s', 'showSeries')
+URL_SEARCH_SERIES = (URL_MAIN + 'search.php?q=', 'showSeries')
 
 
 def load():

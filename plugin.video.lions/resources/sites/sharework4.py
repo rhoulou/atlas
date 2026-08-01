@@ -16,7 +16,7 @@ SITE_IDENTIFIER = 'sharework4'
 SITE_NAME = 'Sharework'
 SITE_DESC = 'French torrent site'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/category/films', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/category/series', 'showSeries')

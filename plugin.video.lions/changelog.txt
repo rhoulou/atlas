@@ -1,4 +1,15 @@
 =====================================================
+version="1.0.99"
+-sharework4: search URLs were built with a double slash (//recherche/xxx) because URL_MAIN kept its trailing slash - URL_MAIN is now normalized with rstrip('/')
+-shooflive_net: search moved to the real /search/<term>/ scheme (the old //?s= WordPress query returned nothing)
+-shortseris_online: stray %s format placeholder removed from the global search URL (search.php?q=%s -> search.php?q=<term>)
+-spacepowerfan: search now uses the site's /search/?asp=1&s_keyword=<term>&s_orderby=popular&s_order=desc endpoint (the old /?s= page returned no results)
+-stripchat: global search now passes the searched term straight to the API search instead of rebuilding https://stripchat.com/<term> and forcing a keyboard
+-tamilmv.torrentbay.st: dead domain - site removed entirely
+-stardima (w1.stardima.sbs): dead domain - site removed entirely (embed hoster untouched)
+=====================================================
+
+=====================================================
 version="1.0.98"
 -topcinema: domain moved to topcinemaa.cc (old web3.topcinema.top is down, HTTP 500); the on-site search page is JS-rendered so the search now POSTs to the site's own endpoint (wp-content/themes/movies2023/Ajaxat/Searching.php, s=<term>&type=all|series) and reuses the working listing parser; category + search card parsers are now newline-tolerant (the live HTML splits each Small--Box block across lines, the old strict regex matched 0 rows)
 -thepiratebay_city: categories and global search rebuilt for the new URL scheme - Porn search uses /search/?cat=4&query=<term>, Films/Series menus and Movies/Series search use /search?cat=0&query=<term> (the old /browse/201 and /browse/205 category pages are gone, HTTP 404); the listing parser was rewritten for the new detLink row layout (title + seed/leech counts, no more size cell) and pagination now follows the rel="next" link
