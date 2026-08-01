@@ -14,6 +14,9 @@ URL_API = 'https://api3.shahid.net/proxy/v2.1'
 COUNTRY = 'MA'
 PAGE_SIZE = 30
 
+DRM_TYPE = 'com.widevine.alpha'
+DRM_LICENSE_KEY = 'https://shahid.la.drm.cloud/acquire-license/widevine?BrandGuid=2be49af0-6fbd-4511-8e11-3d6523185bb4'
+
 
 def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
     icons = addon().getSetting('defaultIcons')
@@ -113,6 +116,8 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
                 oOutputParameterHandler.addParameter('siteUrl', sId)
                 oOutputParameterHandler.addParameter('sTitle', sTitle)
                 oOutputParameterHandler.addParameter('sThumb', sThumb)
+                oOutputParameterHandler.addParameter('sDrmType', DRM_TYPE)
+                oOutputParameterHandler.addParameter('sDrmLicenseKey', DRM_LICENSE_KEY)
 
                 if oItem.get('productType') == 'SHOW':
                     oGui.addDrama(sSiteIdentifier, 'showContent', sTitle,
@@ -190,6 +195,8 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
                 oOutputParameterHandler.addParameter('siteUrl', sEpId)
                 oOutputParameterHandler.addParameter('sTitle', sLabel)
                 oOutputParameterHandler.addParameter('sThumb', sEpThumb)
+                oOutputParameterHandler.addParameter('sDrmType', DRM_TYPE)
+                oOutputParameterHandler.addParameter('sDrmLicenseKey', DRM_LICENSE_KEY)
                 oGui.addEpisode(sSiteIdentifier, 'showPlay', sLabel,
                                 sEpThumb if sEpThumb else icons + '/TVShows.png', sEpThumb, sDesc,
                                 oOutputParameterHandler)
@@ -219,11 +226,6 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
             sContent = _fetch(URL_API + '/playout/new/url/' + str(sProductId) + '?country=' + COUNTRY)
             dJson = json.loads(sContent)
             oPlayout = dJson.get('playout') or dJson
-
-            if oPlayout.get('drm'):
-                dialog().VSinfo('[COLOR yellow]Stream protected (DRM) - not playable[/COLOR]', sSiteName)
-                oGui.setEndOfDirectory()
-                return
 
             aMediaUrls = oPlayout.get('mediaUrls') or []
             if not aMediaUrls:

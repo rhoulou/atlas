@@ -14,10 +14,12 @@ from resources.lib.handler.pluginHandler import cPluginHandler
 from resources.lib.upnext import UpNext
 
 
-from resources.lib.util import cUtil, Unquote, urlHostName
+from resources.lib.util import cUtil, Unquote
 
 
 from os.path import splitext
+
+from urllib.parse import urlparse
 
 # pour les sous titres
 # https://github.com/amet/service.subtitles.demo/blob/master/service.subtitles.demo/service.py
@@ -53,6 +55,8 @@ class cPlayer(xbmc.Player):
         self.movieUrl = oInputParameterHandler.getValue('movieUrl')
         self.movieFunc = oInputParameterHandler.getValue('movieFunc')
         self.sTmdbId = oInputParameterHandler.getValue('sTmdbId')
+        self.sDrmType = oInputParameterHandler.getValue('sDrmType')
+        self.sDrmLicenseKey = oInputParameterHandler.getValue('sDrmLicenseKey')
 
         self.playBackEventReceived = False
         self.playBackStoppedEventReceived = False
@@ -115,7 +119,7 @@ class cPlayer(xbmc.Player):
 
         player_conf = self.ADDON.getSetting('playerPlay')
         # Si lien dash, methode prioritaire
-        mpd = splitext(urlHostName(sUrl))[-1] in [".mpd", ".m3u8"]
+        mpd = splitext(urlparse(sUrl).path)[-1].lower() in [".mpd", ".m3u8"]
         mpd |= '&ct=6&' in sUrl     # mpd venant de ok.ru, n'a pas d'extension
         if mpd:
             if isKrypton() == True:
@@ -125,6 +129,9 @@ class cPlayer(xbmc.Player):
                     item.setProperty('inputstream.adaptive.manifest_type', 'hls')
                 else:
                     item.setProperty('inputstream.adaptive.manifest_type', 'mpd')
+                if self.sDrmType and self.sDrmLicenseKey:
+                    item.setProperty('inputstream.adaptive.license_type', self.sDrmType)
+                    item.setProperty('inputstream.adaptive.license_key', self.sDrmLicenseKey)
                 xbmcplugin.setResolvedUrl(sPluginHandle, True, listitem=item)
                 VSlog('Player use inputstream addon')
             else:

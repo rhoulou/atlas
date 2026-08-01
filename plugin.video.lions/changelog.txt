@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.90"
+-shahid.mbc.net: enable real playback of the DRM-protected free content via inputstream.adaptive + Widevine (license: shahid.la.drm.cloud acquire-license, DRMtoday); the generic player now supports per-stream DRM license settings and its .mpd/.m3u8 detection was fixed to check the URL path
+=====================================================
+
+=====================================================
 version="1.0.89"
 -add Shahid MBC (shahid.mbc.net) free tier: three sites (AR/EN/FR) browsing the 16 editorial carousels (Films, Séries, Documentaires, Enfants, etc.) through seasons and episodes; playback via the playout entitlement (DRM-protected items show a notice instead)
 -add dormant Weyyak site entries (deactivated)

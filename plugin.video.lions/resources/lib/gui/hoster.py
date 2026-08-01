@@ -97,6 +97,14 @@ class cHosterGui:
         oOutputParameterHandler.addParameter('saisonUrl', saisonUrl)
         oOutputParameterHandler.addParameter('realHoster', oHoster.getRealHost())
 
+        # gestion DRM (inputstream.adaptive)
+        sDrmType = oInputParameterHandler.getValue('sDrmType')
+        sDrmLicenseKey = oInputParameterHandler.getValue('sDrmLicenseKey')
+        if sDrmType:
+            oOutputParameterHandler.addParameter('sDrmType', sDrmType)
+        if sDrmLicenseKey:
+            oOutputParameterHandler.addParameter('sDrmLicenseKey', sDrmLicenseKey)
+
         # gestion Lecture en cours
         oOutputParameterHandler.addParameter('movieUrl', movieUrl)
         oOutputParameterHandler.addParameter('movieFunc', movieFunc)
