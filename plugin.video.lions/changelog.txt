@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.94"
+-shahid.mbc.net: inputstream.adaptive v21.5+ rejected the 2-block license_key ("Wrong '|' blocks in license URL...") - the license string now uses the 4-block form URL|Headers|Post-Data|Response-Data, sending the x-dt-auth-token header plus the raw Widevine challenge (R{SSM}) and expecting a raw license response (R)
+=====================================================
+
+=====================================================
 version="1.0.93"
 -shahid.mbc.net: license server (DRMtoday) was rejecting the Widevine request with 403 - the playout's restrictionsToken (JWT) is now attached to the license call as the x-dt-auth-token header, which DRMtoday uses to authorize Shahid licenses
 =====================================================

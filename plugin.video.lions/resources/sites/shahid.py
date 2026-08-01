@@ -245,7 +245,7 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
             sLicense = DRM_LICENSE_KEY
             sRestrictionsToken = oPlayout.get('restrictionsToken') or ''
             if sRestrictionsToken:
-                sLicense = '%s|x-dt-auth-token=%s' % (DRM_LICENSE_KEY, sRestrictionsToken)
+                sLicense = '%s|x-dt-auth-token=%s|R{SSM}|R' % (DRM_LICENSE_KEY, sRestrictionsToken)
             cHosterGui().showHoster(oGui, oHoster, sMediaUrl, sThumb, sDrmLicenseKey=sLicense)
         except Exception as e:
             VSlog('shahid: showPlay failed (' + str(e) + ')')
