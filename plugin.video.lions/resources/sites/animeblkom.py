@@ -19,7 +19,7 @@ SITE_IDENTIFIER = 'animeblkom'
 SITE_NAME = 'Animeblkom'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 ANIM_NEWS = (URL_MAIN + '/series-list', 'showSeries')
 

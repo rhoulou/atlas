@@ -35,7 +35,7 @@ CHAT_TRANS = (URL_MAIN + '/api/ts/roomlist/room-list/?genders=t&limit=100&offset
 
 TAG_URL = URL_MAIN + '/api/ts/hashtags/top_tags/?count=100'
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 USER_AGENT_IPAD = 'Mozilla/5.0 (iPad; CPU OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B410 Safari/600.1.4'
@@ -91,9 +91,10 @@ def load():
     oGui.setEndOfDirectory()
 
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
     if sSearchText:
         sUrl = URL_MAIN + '/api/ts/roomlist/room-list/?genders=f&limit=100&offset=0'
         showRooms(sUrl, sSearchText)

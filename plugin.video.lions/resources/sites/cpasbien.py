@@ -20,7 +20,7 @@ URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
 CAT_FILMS = (URL_MAIN + '/category/films', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/category/series', 'showSeries')
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 URL_SEARCH_DRAMAS = ('', 'showSearch')
 

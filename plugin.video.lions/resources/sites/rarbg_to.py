@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'rarbg_to'
 SITE_NAME = 'RARBG'
 SITE_DESC = 'RARBG torrent site'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/torrents.php?category=movies', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/torrents.php?category=tv', 'showSeries')

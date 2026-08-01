@@ -21,7 +21,7 @@ SITE_IDENTIFIER = 'aracinema_co'
 SITE_NAME = 'AradramTV'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 MOVIE_ASIAN = (URL_MAIN + '/category/%d8%a7%d9%84%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d9%84%d8%a2%d8%b3%d9%8a%d9%88%d9%8a%d8%a9/', 'showMovies')
 SERIE_ASIA = (URL_MAIN + '/category/serie/', 'showSerie')

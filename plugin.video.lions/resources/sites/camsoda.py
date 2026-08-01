@@ -34,7 +34,7 @@ CS_COUPLES = (URL_MAIN + '/api/v1/browse/react?gender-hide=m,f,t', 'showRooms', 
 CS_MALE = (URL_MAIN + '/api/v1/browse/react?gender-hide=f,c,t', 'showRooms', 'm')
 CS_TRANS = (URL_MAIN + '/api/v1/browse/react?gender-hide=m,f,c', 'showRooms', 't')
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:150.0) Gecko/20100101 Firefox/150.0'
@@ -78,9 +78,10 @@ def load():
     oGui.setEndOfDirectory()
 
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
     if sSearchText:
         oOutputParameterHandler = cOutputParameterHandler()
         oOutputParameterHandler.addParameter('siteUrl', URL_MAIN)

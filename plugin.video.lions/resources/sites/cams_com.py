@@ -25,7 +25,7 @@ CHAT_FEMALE = (URL_MAIN, 'showRooms')
 CHAT_MALE = (URL_MAIN, 'showRooms')
 CHAT_TRANS = (URL_MAIN, 'showRooms')
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
@@ -58,9 +58,10 @@ def load():
     oGui.setEndOfDirectory()
 
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
     if sSearchText:
         showRooms(URL_MAIN, sSearchText)
         oGui.setEndOfDirectory()

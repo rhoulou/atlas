@@ -31,7 +31,7 @@ BC_COUPLES = (URL_MAIN + '/tools/listing_v3.php?livetab=couples&offset=0&limit=7
 BC_MALE = (URL_MAIN + '/tools/listing_v3.php?livetab=male&offset=0&limit=72', 'showRooms')
 BC_TRANS = (URL_MAIN + '/tools/listing_v3.php?livetab=transsexual&offset=0&limit=72', 'showRooms')
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
@@ -67,9 +67,10 @@ def load():
     oGui.setEndOfDirectory()
 
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
     if sSearchText:
         sUrl = URL_MAIN + '/tools/listing_v3.php?livetab=all&offset=0&limit=72&model_search%5Bdisplay_name%5D%5Btext%5D=' + sSearchText
         showRooms(sUrl, sSearchText)

@@ -20,7 +20,7 @@ SITE_IDENTIFIER = 'gateanime'
 SITE_NAME = 'Gateanime'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 ANIM_NEWS = (URL_MAIN + '/tag/أنميات-موسم-شتاء-2022/', 'showSeries')
 ANIM_MOVIES = (URL_MAIN + '/الأفلام/', 'showMovies')

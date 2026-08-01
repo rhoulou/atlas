@@ -19,7 +19,7 @@ SITE_IDENTIFIER = 'fansubs'
 SITE_NAME = 'Fansubstv'
 SITE_DESC = 'arabic vod'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 ANIM_NEWS = (URL_MAIN+'/videos/latest?page_id=1', 'showMovies')
 

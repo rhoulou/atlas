@@ -131,10 +131,20 @@
             "active": "True",
             "url": "https://ww1.asia2tv.pw/"
         },
+        "asiadtv": {
+            "label": "AsiaDramaTV",
+            "active": "True",
+            "url": "https://asiadtv.pw/"
+        },
         "asiaarabs": {
             "label": "Asia4arabs",
             "active": "True",
             "url": "https://www.asia4arabs.com/"
+        },
+        "awaan": {
+            "label": "Awaan",
+            "active": "True",
+            "url": "https://awaan.net/"
         },
         "bahyfilm": {
             "label": "Bahyfilm",
@@ -205,6 +215,11 @@
             "label": "Cima4u cam",
             "active": "True",
             "url": "https://cimafu.cam/"
+        },
+        "cinemana": {
+            "label": "Cinemana",
+            "active": "True",
+            "url": "https://cinemana.tv/"
         },
         "cpasbien": {
             "label": "Cpasbien",

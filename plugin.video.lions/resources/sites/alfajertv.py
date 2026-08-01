@@ -19,7 +19,7 @@ SITE_IDENTIFIER = 'alfajertv'
 SITE_NAME = 'FajerShow'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 RAMADAN_SERIES = (URL_MAIN + '/genre/ramadan2024', 'showSeries')
 MOVIE_EN = (URL_MAIN + '/genre/english-movies/', 'showMovies')
 MOVIE_AR = (URL_MAIN + '/genre/arabic-movies/', 'showMovies')

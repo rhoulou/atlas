@@ -41,7 +41,7 @@ SERIES_CATEGORIES = [
     ('Series MULTI 4K UHD', URL_MAIN + '/?p=series&s=multi-4k'),
 ]
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 
@@ -81,9 +81,10 @@ def showSeriesCat():
     oGui.setEndOfDirectory()
 
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
     if sSearchText:
         sSearchUrl = URL_MAIN + '/?p=films&search=' + urllib.parse.quote(sSearchText)
         oRequestHandler = cRequestHandler(sSearchUrl)

@@ -1,4 +1,12 @@
 =====================================================
+version="1.0.100"
+-32 sites: URL_MAIN is now normalized with rstrip('/') so search URLs no longer double-slash (//search/xxx) - aflaam, aflamfree, aflamtop, akwam, alfajertv, animeblkom, animeup, animezid, aracinema_co, asiaarabs, bahyfilm, cimanow, daktna, egydead, extranet_torrentbay_st, extratorrent_torrentbay_st, eztvx_to, fansubs, faselhd, gateanime, ilcorsaronero_torrentbay_st, libgen_torrentbay_st, limetorrents_asia, lodynet, magnetdl_pro, mycima, pakistani, pirateiro_io, rarbg_to, cinemana, cimau, halacima
+-cimau: global search moved to the /search/<term>/ scheme (was a broken /?s= query)
+-halacima: global search moved to the /search/<term>/ scheme (was a broken /search/page.html)
+-bongacams, cams_com, camsoda, chaturbate, annuaire_telechargement, annuaire_telechargement_estate, cpasbien, en_yts_lu: global search now wires the typed term through URL_SEARCH ('', 'showSearch') instead of dropping it
+-cinemana, asiaadtv, awaan: sites re-added to sites.json
+=====================================================
+=====================================================
 version="1.0.99"
 -sharework4: search URLs were built with a double slash (//recherche/xxx) because URL_MAIN kept its trailing slash - URL_MAIN is now normalized with rstrip('/')
 -shooflive_net: search moved to the real /search/<term>/ scheme (the old //?s= WordPress query returned nothing)

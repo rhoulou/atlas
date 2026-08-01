@@ -22,7 +22,7 @@ SITE_IDENTIFIER = 'aflaam'
 SITE_NAME = 'Aflaam'
 SITE_DESC = 'arabic vod'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 MOVIE_FAM = (URL_MAIN + '/movies?section=0&category=33&rating=0&year=0&language=0&formats=0&quality=0', 'showMovies')
 MOVIE_AR = (URL_MAIN + '/movies?section=1', 'showMovies')

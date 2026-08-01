@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'pirateiro_io'
 SITE_NAME = 'Pirateiro'
 SITE_DESC = 'Pirateiro torrent site (KAT clone)'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/browse/movies', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/browse/tv', 'showSeries')

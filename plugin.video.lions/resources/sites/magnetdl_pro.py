@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'magnetdl_pro'
 SITE_NAME = 'MagnetDL'
 SITE_DESC = 'MagnetDL torrent site'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/sort-movies-', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/sort-tv-', 'showSeries')

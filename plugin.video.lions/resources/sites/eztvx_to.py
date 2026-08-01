@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'eztvx_to'
 SITE_NAME = 'EZTV'
 SITE_DESC = 'EZTV torrent site'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/browse/tv', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/browse/tv', 'showSeries')

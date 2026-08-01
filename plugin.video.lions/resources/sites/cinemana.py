@@ -20,7 +20,7 @@ SITE_DESC = 'arabic vod'
 
 UA = random_ua.get_ua()
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 MOVIE_EN = (URL_MAIN + '/movies/', 'showMovies')
 MOVIE_AR = (URL_MAIN + '/page/arabic-movies/', 'showMovies')

@@ -20,7 +20,7 @@ URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
 CAT_FILMS = (URL_MAIN + '/film/vf/', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/serie/', 'showSeries')
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 def load():
@@ -40,9 +40,10 @@ def load():
 
     oGui.setEndOfDirectory()
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
     if sSearchText:
         oRequestHandler = cRequestHandler(URL_MAIN)
         oRequestHandler.setRequestType(1)

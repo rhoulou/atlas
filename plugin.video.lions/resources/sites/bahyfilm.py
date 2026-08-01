@@ -20,7 +20,7 @@ SITE_IDENTIFIER = 'bahyfilm'
 SITE_NAME = 'BahyFilm'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 MOVIE_EN = (URL_MAIN + 'section.php?sidebarID=11', 'showMovies')
 MOVIE_ASIAN = (URL_MAIN + 'section.php?sidebarID=15', 'showMovies')

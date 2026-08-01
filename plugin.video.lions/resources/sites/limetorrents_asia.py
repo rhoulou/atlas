@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'limetorrents_asia'
 SITE_NAME = 'LimeTorrents'
 SITE_DESC = 'LimeTorrents torrent site'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/browse-torrents/Movies', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/browse-torrents/TV', 'showSeries')
