@@ -236,11 +236,6 @@
             "active": "True",
             "url": "https://www.deep-drama.com/"
         },
-        "demonoid_torrentbay_st": {
-            "label": "Demonoid",
-            "active": "False",
-            "url": "https://demonoid.torrentbay.st/"
-        },
         "detectiveconanar": {
             "label": "Detectiveconanar",
             "active": "True",
@@ -271,11 +266,6 @@
             "active": "True",
             "url": "https://qeseh.net/"
         },
-        "ettv_torrentbay_st": {
-            "label": "ETTV",
-            "active": "False",
-            "url": "https://ettv.torrentbay.st/"
-        },
         "extranet_torrentbay_st": {
             "label": "ExtraNet",
             "active": "True",
@@ -285,11 +275,6 @@
             "label": "ExtraTorrent",
             "active": "True",
             "url": "https://extra.torrentbay.st/"
-        },
-        "eztv_torrentbay_st": {
-            "label": "EZTV (.st)",
-            "active": "False",
-            "url": "https://eztv.torrentbay.st/"
         },
         "eztvx_to": {
             "label": "EZTV",
@@ -401,11 +386,6 @@
             "active": "True",
             "url": "https://magnetdl.pro/"
         },
-        "monova_torrentbay_st": {
-            "label": "Monova",
-            "active": "False",
-            "url": "https://monova.torrentbay.st/"
-        },
         "moviegate": {
             "label": "Moviegate",
             "active": "True",
@@ -451,20 +431,10 @@
             "active": "True",
             "url": "https://rarbg.to/"
         },
-        "rarbg_torrentbay_st": {
-            "label": "RARBG (.st)",
-            "active": "False",
-            "url": "https://rarbg.torrentbay.st/"
-        },
         "s3uditv": {
             "label": "S3uditv",
             "active": "False",
             "url": "https://k.s3udi.tv/"
-        },
-        "scnsrc_torrentbay_st": {
-            "label": "ScnSrc",
-            "active": "False",
-            "url": "https://scnsrc.torrentbay.st/"
         },
         "shahidu": {
             "label": "Shahid4u",
@@ -586,11 +556,6 @@
             "active": "True",
             "url": "https://torrent9.torrentbay.st/"
         },
-        "torrentz2_torrentbay_st": {
-            "label": "Torrentz2",
-            "active": "False",
-            "url": "https://torrentz2.torrentbay.st/"
-        },
         "tuktukcinema": {
             "label": "Tuktukcinema",
             "active": "True",
@@ -605,11 +570,6 @@
             "label": "Watanflix",
             "active": "True",
             "url": "https://watanflix.com/"
-        },
-        "watchepisodes_torrentbay_st": {
-            "label": "WatchEp",
-            "active": "False",
-            "url": "https://watchepisodes.torrentbay.st/"
         },
         "witanime": {
             "label": "WitAnime",

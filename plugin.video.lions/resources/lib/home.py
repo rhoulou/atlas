@@ -78,6 +78,9 @@ class cHome:
         oGui.addDir(SITE_IDENTIFIER, 'showChat', 'X-Chat', icons + '/LiveTV.png', oOutputParameterHandler)
 
         oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
+        oGui.addDir(SITE_IDENTIFIER, 'showTorrents', 'Torrents', icons + '/Download.png', oOutputParameterHandler)
+
+        oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
         oGui.addDir(SITE_IDENTIFIER, 'showUsers', self.addons.VSlang(30455), icons + '/User.png', oOutputParameterHandler)
 
         oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
@@ -530,6 +533,39 @@ class cHome:
         )
 
         for sSiteId, sLabel, sIcon in aChatSites:
+            oOutputParameterHandler = cOutputParameterHandler()
+            oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
+            oGui.addDir(sSiteId, 'load', sLabel, sIcon, oOutputParameterHandler)
+
+        oGui.setEndOfDirectory()
+
+    def showTorrents(self):
+
+        oGui = cGui()
+
+        aTorrentSites = (
+            ('thepiratebay_city', 'The Pirate Bay', 'sites/thepiratebay_city.png'),
+            ('rarbg_to', 'RARBG', 'sites/rarbg_to.png'),
+            ('torrent911_app', 'Torrent911', 'sites/torrent911_app.png'),
+            ('x1337x_pro', '1337x', 'sites/x1337x_pro.png'),
+            ('zooqle_io', 'Zooqle', 'sites/zooqle_io.png'),
+            ('limetorrents_asia', 'Limetorrents', 'sites/limetorrents_asia.png'),
+            ('magnetdl_pro', 'MagnetDL', 'sites/magnetdl_pro.png'),
+            ('eztvx_to', 'EZTV', 'sites/eztvx_to.png'),
+            ('en_yts_lu', 'en.yts.lu', 'sites/en_yts_lu.png'),
+            ('yts_pro', 'YTS', 'sites/yts_pro.png'),
+            ('extranet_torrentbay_st', 'ExtraNet', 'sites/extranet_torrentbay_st.png'),
+            ('extratorrent_torrentbay_st', 'ExtraTorrent', 'sites/extratorrent_torrentbay_st.png'),
+            ('ilcorsaronero_torrentbay_st', 'IlCorSaRoNeRo', 'sites/ilcorsaronero_torrentbay_st.png'),
+            ('torrent9_bid', 'Torrent9', 'sites/torrent9_bid.png'),
+            ('torrent9_to', 'Torrent9 (.to)', 'sites/torrent9_to.png'),
+            ('torrent9_torrentbay_st', 'Torrent9', 'sites/torrent9_torrentbay_st.png'),
+            ('libgen_torrentbay_st', 'LibGen', 'sites/libgen_torrentbay_st.png'),
+            ('katkoute', 'Katkoute', 'sites/katkoute.png'),
+            ('kat_cc', 'KAT', 'sites/kat_cc.png'),
+        )
+
+        for sSiteId, sLabel, sIcon in aTorrentSites:
             oOutputParameterHandler = cOutputParameterHandler()
             oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
             oGui.addDir(sSiteId, 'load', sLabel, sIcon, oOutputParameterHandler)

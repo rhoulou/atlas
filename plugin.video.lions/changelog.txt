@@ -1,4 +1,10 @@
 =====================================================
+version="1.0.102"
+-New Torrents home category: groups all 19 working torrent sites (The Pirate Bay, RARBG, Torrent911, 1337x, Zooqle, Limetorrents, MagnetDL, EZTV, YTS x2, ExtraNet, ExtraTorrent, IlCorSaRoNeRo, Torrent9 x3, LibGen, Katkoute, KAT) in one submenu with icons
+-KAT (kat_cc) site icon added (kat.cc official logo)
+-Removed 8 dead torrent sites.json entries that had no module or icon: demonoid_torrentbay_st, ettv_torrentbay_st, eztv_torrentbay_st, monova_torrentbay_st, rarbg_torrentbay_st, scnsrc_torrentbay_st, torrentz2_torrentbay_st, watchepisodes_torrentbay_st
+=====================================================
+=====================================================
 version="1.0.101"
 -New IMDb site (imdb): browse Top 250, Popular Movies, Popular TV and 17 movie genres by scraping www.imdb.com; search uses the WAF-free legacy suggestion API (v2.sg.media-imdb.com); titles hand off to the global search
 =====================================================
