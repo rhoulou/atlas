@@ -456,6 +456,21 @@
             "active": "True",
             "url": "https://shiid4u.co/"
         },
+        "shahid_ar": {
+            "label": "Shahid",
+            "active": "True",
+            "url": "https://shahid.mbc.net/ar"
+        },
+        "shahid_en": {
+            "label": "Shahid EN",
+            "active": "True",
+            "url": "https://shahid.mbc.net/en"
+        },
+        "shahid_fr": {
+            "label": "Shahid FR",
+            "active": "True",
+            "url": "https://shahid.mbc.net/fr"
+        },
         "shahid4u_uno": {
             "label": "Shahid4u Uno",
             "active": "False",
@@ -656,6 +671,16 @@
             "label": "Zooqle",
             "active": "True",
             "url": "https://zooqle.app/"
+        },
+        "weyyak": {
+            "label": "Weyyak",
+            "active": "False",
+            "url": "https://weyyak.com/"
+        },
+        "weyyak_en": {
+            "label": "Weyyak EN",
+            "active": "False",
+            "url": "https://weyyak.com/"
         }
     }
 }

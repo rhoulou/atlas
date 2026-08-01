@@ -33,7 +33,7 @@
     "ahdaf": {
       "label": "Ahdaf",
       "active": "True",
-      "url": "http://ahdaf-kooora.com/"
+      "url": "https://ahdaf-kooora.net/"
     },
     "akoam": {
       "label": "Akoam",
@@ -456,6 +456,21 @@
       "active": "True",
       "url": "https://shiid4u.co/"
     },
+    "shahid_ar": {
+      "label": "Shahid",
+      "active": "True",
+      "url": "https://shahid.mbc.net/ar"
+    },
+    "shahid_en": {
+      "label": "Shahid EN",
+      "active": "True",
+      "url": "https://shahid.mbc.net/en"
+    },
+    "shahid_fr": {
+      "label": "Shahid FR",
+      "active": "True",
+      "url": "https://shahid.mbc.net/fr"
+    },
     "shahid4u_uno": {
       "label": "Shahid4u Uno",
       "active": "False",
@@ -501,15 +516,15 @@
       "active": "True",
       "url": "https://w1.stardima.sbs/watch/"
     },
-    "studiotv": {
-      "label": "studio2tv",
-      "active": "True",
-      "url": "https://www.studio2tv.tn/"
-    },
     "stripchat": {
       "label": "Stripchat",
       "active": "True",
       "url": "https://stripchat.com/"
+    },
+    "studiotv": {
+      "label": "studio2tv",
+      "active": "True",
+      "url": "https://www.studio2tv.tn/"
     },
     "tamilmv_torrentbay_st": {
       "label": "TamilMV",
@@ -636,10 +651,10 @@
       "active": "True",
       "url": "https://www.dailymotion.com"
     },
-    "yts_lu": {
-      "label": "YTS (.lu)",
+    "en_yts_lu": {
+      "label": "en.yts.lu",
       "active": "True",
-      "url": "https://www13.yts.lu/"
+      "url": "https://en.yts.lu/"
     },
     "yts_pro": {
       "label": "YTS",
@@ -656,6 +671,16 @@
       "label": "Zooqle",
       "active": "True",
       "url": "https://zooqle.app/"
+    },
+    "weyyak": {
+      "label": "Weyyak",
+      "active": "False",
+      "url": "https://weyyak.com/"
+    },
+    "weyyak_en": {
+      "label": "Weyyak EN",
+      "active": "False",
+      "url": "https://weyyak.com/"
     }
   }
 }

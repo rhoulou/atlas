@@ -1,4 +1,10 @@
 =====================================================
+version="1.0.89"
+-add Shahid MBC (shahid.mbc.net) free tier: three sites (AR/EN/FR) browsing the 16 editorial carousels (Films, Séries, Documentaires, Enfants, etc.) through seasons and episodes; playback via the playout entitlement (DRM-protected items show a notice instead)
+-add dormant Weyyak site entries (deactivated)
+=====================================================
+
+=====================================================
 version="1.0.88"
 -add forja.ma (SNRT) Moroccan VOD: two sites (Forja / Forja AR) with Films, Séries, Théâtre, Divertissement, Documentaires and Enfants catalogues + search (incl. drama global search); direct free HLS playback via a forja hoster that resolves the signed m3u8 token (vod.forja.ma/snrt)
 -update the aflamin logos to the real Aflamin artwork
