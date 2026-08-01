@@ -19,13 +19,13 @@
             "lng": "30422156"
         },
         "aflamin_com": {
-            "label": "aflamin_com",
+            "label": "aflamin_com_ar",
             "active": "True",
             "url": "https://www.aflamin.com/ar",
             "lng": "30422157"
         },
         "aflamin_fr": {
-            "label": "aflamin_com",
+            "label": "aflamin_com_fr",
             "active": "True",
             "url": "https://www.aflamin.com/fr",
             "lng": "30422158"
@@ -362,13 +362,13 @@
             "lng": "30422213"
         },
         "forja_ma": {
-            "label": "forja_ma",
+            "label": "forja_ma_fr",
             "active": "True",
             "url": "https://forja.ma/?lang=fr",
             "lng": "30422214"
         },
         "forja_ma_ar": {
-            "label": "forja_ma",
+            "label": "forja_ma_ar",
             "active": "True",
             "url": "https://forja.ma/?lang=ar",
             "lng": "30422215"
@@ -536,19 +536,19 @@
             "lng": "30422242"
         },
         "shahid_ar": {
-            "label": "shahid_mbc_net",
+            "label": "shahid_mbc_net_ar",
             "active": "True",
             "url": "https://shahid.mbc.net/ar",
             "lng": "30422243"
         },
         "shahid_en": {
-            "label": "shahid_mbc_net",
+            "label": "shahid_mbc_net_en",
             "active": "True",
             "url": "https://shahid.mbc.net/en",
             "lng": "30422244"
         },
         "shahid_fr": {
-            "label": "shahid_mbc_net",
+            "label": "shahid_mbc_net_fr",
             "active": "True",
             "url": "https://shahid.mbc.net/fr",
             "lng": "30422245"
@@ -775,6 +775,12 @@
             "active": "False",
             "url": "https://weyyak.com/",
             "lng": "30422282"
+        },
+        "torrentio": {
+            "label": "torrentio_strem_fun",
+            "active": "True",
+            "url": "https://torrentio.strem.fun/",
+            "lng": "30422283"
         }
     }
 }

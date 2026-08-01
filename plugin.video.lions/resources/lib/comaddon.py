@@ -510,7 +510,9 @@ class siteManager:
     def getSiteName(self, sourceName):
         lng = self.getDefaultProperty(sourceName, 'lng')
         if lng and str(lng).isdigit():
-            return addon().VSlang(int(lng))
+            sName = addon().VSlang(int(lng))
+            if sName and not str(sName).isdigit():
+                return sName
         label = self.getDefaultProperty(sourceName, self.LABEL)
         if label:
             return str(label)

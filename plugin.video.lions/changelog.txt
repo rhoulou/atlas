@@ -1,4 +1,12 @@
 =====================================================
+version="1.0.104"
+-New Torrentio site: streams from all 24 Torrentio providers (YTS, EZTV, RARBG, 1337x, ThePirateBay, KickassTorrents, TorrentGalaxy, MagnetDL, HorribleSubs, NyaaSi, TokyoTosho, AniDex, nekoBT, Rutor, Rutracker, Comando, BluDV, MicoLeaoDublado, Torrent9, ilCorSaRoNeRo, MejorTorrent, Wolfmax4k, Cinecalidad, BestTorrents)
+-Search by title resolves to IMDb id, lists every stream with quality/size/seeds/provider, plays via Elementum (movies + series with season/episode picker)
+-Added to the Torrents home category; icon + sites.json + EN/FR/AR language entry
+-Fix: Sources site list no longer crashes with empty &title (broken English strings.po block broke site-name translations; site names now fall back to sites.json label if a translation is missing)
+-Site naming: multi-language sites now show the language in the name (e.g. aflamin.com/ar -> aflamin_com_ar, shahid.mbc.net/fr -> shahid_mbc_net_fr) in EN/FR/AR
+=====================================================
+=====================================================
 version="1.0.103"
 -Site names now shown as the full domain (e.g. aflaam.com -> aflaam_com) everywhere in the GUI (Sources, category lists, global search, Torrents/X-Chat, Sites Manager)
 -Site names are localized through the language files (English/French/Arabic): each of the 129 sites has its own string id (30422154-30422282) so names can be translated per language

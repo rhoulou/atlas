@@ -564,6 +564,7 @@ class cHome:
             ('libgen_torrentbay_st', 'sites/libgen_torrentbay_st.png'),
             ('katkoute', 'sites/katkoute.png'),
             ('kat_cc', 'sites/kat_cc.png'),
+            ('torrentio', 'sites/torrentio.png'),
         )
 
         oSitesManager = siteManager()
