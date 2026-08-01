@@ -1,4 +1,12 @@
 =====================================================
+version="1.0.97"
+-torrent9.bid + torrent9.torrentbay.st: global search fixed - the broken POST search (torrentSearch -> 302 redirect) and the wrong /search/ path are replaced by the site's real GET scheme /recherche/<term>[/page]; the listing parser previously matched 0 rows because the live HTML puts a newline between the title and the size/seed cells (regex is not DOTALL), the parser now normalizes newlines before matching; search results paginate through the site's /recherche/<term>/<N> links
+-torrent9.torrentbay.st: listing parser rewritten for the site's banner layout (Torrent911 engine); the domain is Cloudflare-protected and is solved automatically via FlareSolverr (local http://127.0.0.1:8191/v1 or the Public FlareSolverr endpoint when enabled); categories now use /torrents/films and /torrents/series
+-torrent911.app: new site (Torrent911 engine, same layout as .st but reachable without Cloudflare) - search via /recherche/<term>[/page] with up to 12+ result pages, categories /torrents/films, /torrents/series, /torrents/animation
+-torrent9.to (www6): new site - search via /search_torrent/<term>[/page-N], categories /torrents_films.html, /torrents_series.html; category pages return 50 rows each with size + seed counts; pagination follows the page-number bar and the ,page-N scheme
+=====================================================
+
+=====================================================
 version="1.0.96"
 -shahid.mbc.net: the site is now a pure metadata catalog (like TMDB / aflamin) instead of a playback source - DRM/widevine playback code removed; menu offers Search (TV Shows / Movies), Top 10 Movies, Top 10 Series and three featured Hero selections (Free / Series / Movies Picks); every catalog entry carries full metadata (description, cast, genres, year, poster/fanart, localized per ar/fr/en instance); clicking a Movie or Episode runs the addon's global source search (globalSearch/showSearch + searchtext + cat) so playback comes from other enabled sites, while Series open a season browser (seasons + episodes with real episode counts) plus a "Search sources" folder; uses the /search/{tab}, /product/top-ranking-by-type, /editorial/page + /editorial/carousel, /product/id and /product/playlistsBySeason endpoints
 =====================================================

@@ -556,10 +556,20 @@
             "active": "True",
             "url": "https://www.imdb.com/"
         },
+        "torrent911_app": {
+            "label": "Torrent911",
+            "active": "True",
+            "url": "https://www.torrent911.app/"
+        },
         "torrent9_bid": {
             "label": "Torrent9",
             "active": "True",
             "url": "https://www.torrent9.bid/"
+        },
+        "torrent9_to": {
+            "label": "Torrent9 (.to)",
+            "active": "True",
+            "url": "https://www6.torrent9.to/"
         },
         "torrent9_torrentbay_st": {
             "label": "Torrent9",

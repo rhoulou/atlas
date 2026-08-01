@@ -1,4 +1,5 @@
 import re
+import html
 import urllib.parse
 
 from resources.lib.gui.hoster import cHosterGui
@@ -11,15 +12,16 @@ from resources.lib.comaddon import VSlog, siteManager, addon
 
 ADDON = addon()
 icons = ADDON.getSetting('defaultIcons')
+LOGO = 'special://home/addons/plugin.video.lions/resources/art/sites/torrent911_app.png'
 
-SITE_IDENTIFIER = 'torrent9_bid'
-SITE_NAME = 'Torrent9'
-SITE_DESC = 'French torrent site'
+SITE_IDENTIFIER = 'torrent911_app'
+SITE_NAME = 'Torrent911'
+SITE_DESC = 'Torrent911 torrent site'
 
 URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
 
-CAT_FILMS = (URL_MAIN + '/category/films', 'showFilms')
-CAT_SERIES = (URL_MAIN + '/category/series', 'showSeries')
+CAT_FILMS = (URL_MAIN + '/torrents/films', 'showFilms')
+CAT_SERIES = (URL_MAIN + '/torrents/series', 'showSeries')
 
 URL_SEARCH = (URL_MAIN + '/recherche/', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
@@ -62,28 +64,21 @@ def showFilms():
     sUrl = oInputParameterHandler.getValue('siteUrl')
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
-    __showTorrents(sHtmlContent)
+    __showTorrents(sHtmlContent, sUrl)
 
 def showSeries():
     oInputParameterHandler = cInputParameterHandler()
     sUrl = oInputParameterHandler.getValue('siteUrl')
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
-    __showTorrents(sHtmlContent)
+    __showTorrents(sHtmlContent, sUrl)
 
 def __showTorrents(sHtmlContent, sUrl=''):
     oGui = cGui()
-    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
+    sHtmlContent = re.sub(r'\r?\n\s*', '', sHtmlContent)
     oParser = cParser()
 
-    sThumbPattern = r'href="/detail/(\d+)"[^>]*><img[^>]*src="([^"]+)"[^>]*title="([^"]+)"'
-    aThumbs = oParser.parse(sHtmlContent, sThumbPattern)
-    dThumbs = {}
-    if aThumbs[0]:
-        for entry in aThumbs[1]:
-            dThumbs[entry[0]] = entry[1]
-
-    sPattern = r'<a href="/detail/(\d+)" title="([^"]*)">[^<]*</a></td>.*?<td[^>]*>([^<]+)</td>.*?<span class="seed_ok">(\d+)'
+    sPattern = r'<div class="banner-title"><a href="/torrent/(\d+)[^"]*" title="([^"]+)"[^>]*>.*?</div></a></div><div class="banner-langue">([^<]*)<div class="banner-qualite">([^<]*)</div></div>'
     aResult = oParser.parse(sHtmlContent, sPattern)
 
     if aResult[0]:
@@ -91,15 +86,14 @@ def __showTorrents(sHtmlContent, sUrl=''):
         for aEntry in aResult[1]:
             sDetailId = aEntry[0]
             sTitle = aEntry[1].strip().replace('&#039;', "'").replace('&amp;', '&').replace('&quot;', '"')
-            sSize = aEntry[2].strip()
-            sSeeds = aEntry[3].strip()
-            sThumb = dThumbs.get(sDetailId, '')
-            sDisplayName = '{}\n[COLOR grey]Size: {} | Seeds: {}[/COLOR]'.format(sTitle, sSize, sSeeds)
+            sLang = aEntry[2].strip()
+            sQualite = aEntry[3].strip()
+            sDisplayName = '{}\n[COLOR grey]{} | {}[/COLOR]'.format(sTitle, sLang, sQualite)
 
-            oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/detail/' + sDetailId)
+            oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/torrent/' + sDetailId)
             oOutputParameterHandler.addParameter('sMovieTitle', sTitle)
 
-            oGui.addMovie(SITE_IDENTIFIER, 'showHosters', sDisplayName, icons + '/Movies.png', sThumb, sDisplayName, oOutputParameterHandler)
+            oGui.addMovie(SITE_IDENTIFIER, 'showHosters', sDisplayName, icons + '/Movies.png', '', sDisplayName, oOutputParameterHandler)
 
     sNextPage = __checkForNextPage(sHtmlContent, sUrl)
     if sNextPage:
@@ -110,25 +104,20 @@ def __showTorrents(sHtmlContent, sUrl=''):
     oGui.setEndOfDirectory()
 
 def __checkForNextPage(sHtmlContent, sUrl=''):
-    if sUrl and '/recherche/' in sUrl:
-        oMatch = re.search(r'/recherche/.+?/(\d+)$', sUrl)
-        iCurrent = int(oMatch.group(1)) if oMatch else 0
-        aNext = []
-        for oMatch in re.finditer(r'href="(/recherche/[^"]+)"', sHtmlContent):
-            sLink = oMatch.group(1)
-            oPageMatch = re.match(r'^/recherche/.+/(\d+)$', sLink)
-            if oPageMatch:
-                iOff = int(oPageMatch.group(1))
-                if iOff > iCurrent:
-                    aNext.append((iOff, sLink))
-        if aNext:
-            return URL_MAIN + min(aNext)[1]
+    if not sUrl:
         return False
-    sPattern = r'href="(/category/[^"]*/\d+)"[^>]*>Suivant'
-    oParser = cParser()
-    aResult = oParser.parse(sHtmlContent, sPattern)
-    if aResult[0]:
-        return URL_MAIN + aResult[1][0]
+    oMatch = re.search(r'/(\d+)$', sUrl)
+    iCurrent = int(oMatch.group(1)) if oMatch else 0
+    sRelBase = re.sub(r'/\d+$', '', sUrl).replace(URL_MAIN.rstrip('/'), '')
+    if not sRelBase:
+        return False
+    aNext = []
+    for oMatch in re.finditer(r'href="(%s/(\d+))"' % re.escape(sRelBase), sHtmlContent):
+        iOff = int(oMatch.group(2))
+        if iOff > iCurrent:
+            aNext.append(iOff)
+    if aNext:
+        return URL_MAIN.rstrip('/') + sRelBase + '/' + str(min(aNext))
     return False
 
 def showHosters():
@@ -142,16 +131,13 @@ def showHosters():
 
     oParser = cParser()
 
-    sPattern = r'class=[\'"]img-rounded[\'\"][^>]*src=[\'"]([^\'"]+)[\'"]'
-    aThumb = oParser.parse(sHtmlContent, sPattern)
-    sThumb = aThumb[1][0] if aThumb[0] else ''
-
     sPattern = r'href="(magnet:[^"]+)"'
     aResult = oParser.parse(sHtmlContent, sPattern)
 
     magnetAdded = False
     if aResult[0]:
         for magnetUrl in aResult[1]:
+            magnetUrl = html.unescape(magnetUrl)
             encoded = urllib.parse.quote(magnetUrl, safe='')
             elementumUrl = 'plugin://plugin.video.elementum/play?uri=' + encoded
             sTitle = sMovieTitle + ' [COLOR violet]Magnet[/COLOR]'
@@ -159,20 +145,20 @@ def showHosters():
             oHoster = cHosterGui().getHoster('elementum')
             oHoster.setDisplayName(sTitle)
             oHoster.setFileName(sMovieTitle)
-            cHosterGui().showHoster(oGui, oHoster, elementumUrl, sThumb)
+            cHosterGui().showHoster(oGui, oHoster, elementumUrl, '')
             magnetAdded = True
 
     if not magnetAdded:
-        sPattern2 = r'href="(/get_torrents/[^"]+)"'
+        sPattern2 = r'href="(/[^"]+\.torrent)"'
         aResult2 = oParser.parse(sHtmlContent, sPattern2)
         if aResult2[0]:
-            for torrentUrl in aResult2[1]:
-                fullUrl = URL_MAIN.rstrip('/') + torrentUrl
+            for torrentPath in aResult2[1]:
+                fullUrl = URL_MAIN.rstrip('/') + torrentPath
                 sTitle2 = sMovieTitle + ' [COLOR orange]Torrent[/COLOR]'
                 oHoster2 = cHosterGui().checkHoster(fullUrl)
                 if oHoster2:
                     oHoster2.setDisplayName(sTitle2)
                     oHoster2.setFileName(sMovieTitle)
-                    cHosterGui().showHoster(oGui, oHoster2, fullUrl, sThumb)
+                    cHosterGui().showHoster(oGui, oHoster2, fullUrl, '')
 
     oGui.setEndOfDirectory()
