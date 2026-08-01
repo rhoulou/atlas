@@ -32,7 +32,7 @@ REPLAYTV_PLAY = (URL_MAIN + '/category/%D8%A8%D8%B1%D8%A7%D9%85%D8%AC','showSeri
 
 SERIE_GENRES = (True, 'showGenres')
 
-URL_SEARCH = (URL_MAIN + '/ar/search?q=', 'showSeries')
+URL_SEARCH = (URL_MAIN + '/ar/search?q=', 'showSeriesSearch')
 URL_SEARCH_SERIES = (URL_MAIN + '/ar/search?q=', 'showSeriesSearch')
 FUNCTION_SEARCH = 'showSeries'
  

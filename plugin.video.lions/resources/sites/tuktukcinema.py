@@ -50,9 +50,9 @@ ANIM_NEWS = (URL_MAIN + 'category/anime-6/انمي-مترجم/', 'showSeries')
 DOC_NEWS = (URL_MAIN + 'genre/وثائقي/?filter=movies', 'showMovies')
 DOC_SERIES = (URL_MAIN + 'genre/وثائقي/?filter=serie', 'showSeries')
 SPORT_WWE = (URL_MAIN + '?s=wwe', 'showMovies')
-URL_SEARCH = (URL_MAIN + '/search/', 'showMovies')
-URL_SEARCH_MOVIES = (URL_MAIN + '/?s=%D9%81%D9%8A%D9%84%D9%85+', 'showMovies')
-URL_SEARCH_SERIES = (URL_MAIN + '/?s=%D9%85%D8%B3%D9%84%D8%B3%D9%84+', 'showSeriesSearch')
+URL_SEARCH = (URL_MAIN + '?s=', 'showMovies')
+URL_SEARCH_MOVIES = (URL_MAIN + '?s=%D9%81%D9%8A%D9%84%D9%85+', 'showMovies')
+URL_SEARCH_SERIES = (URL_MAIN + '?s=%D9%85%D8%B3%D9%84%D8%B3%D9%84+', 'showSeriesSearch')
 FUNCTION_SEARCH = 'showSeries'
  
 def load():
@@ -117,7 +117,7 @@ def showSearch():
  
     sSearchText = oGui.showKeyBoard()
     if sSearchText:
-        sUrl = URL_MAIN + '/?s='+sSearchText+'+%D9%81%D9%8A%D9%84%D9%85'
+        sUrl = URL_MAIN + '?s='+sSearchText+'+%D9%81%D9%8A%D9%84%D9%85'
         showMovies(sUrl)
         oGui.setEndOfDirectory()
         return
@@ -127,7 +127,7 @@ def showSearchSeries():
  
     sSearchText = oGui.showKeyBoard()
     if sSearchText:
-        sUrl = URL_MAIN + '/?s='+sSearchText+'+%D9%85%D8%B3%D9%84%D8%B3%D9%84'
+        sUrl = URL_MAIN + '?s='+sSearchText+'+%D9%85%D8%B3%D9%84%D8%B3%D9%84'
         showSeries(sUrl)
         oGui.setEndOfDirectory()
         return
@@ -192,11 +192,12 @@ def showMovies(sSearch = ''):
  
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
+    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
     
     oParser = cParser()
 
     # (.+?) .+? ([^<]+)   
-    sPattern = '<div class="Block--Item.+?href="([^<]+)" title="(.+?)">.+?src="(.+?)" alt='
+    sPattern = '<div class="Block--Item.+?href="([^<]+)" title="(.+?)">.+?data-src="(.+?)"[^>]*alt='
     aResult = oParser.parse(sHtmlContent, sPattern)
     if aResult[0]:
         oOutputParameterHandler = cOutputParameterHandler()
@@ -242,8 +243,9 @@ def showSeriesSearch(sSearch = ''):
  
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
+    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
  # ([^<]+) .+?
-    sPattern = '<div class="Block--Item.+?href="([^<]+)" title="(.+?)">.+?src="(.+?)" alt='
+    sPattern = '<div class="Block--Item.+?href="([^<]+)" title="(.+?)">.+?data-src="(.+?)"[^>]*alt='
 
     oParser = cParser()
     aResult = oParser.parse(sHtmlContent, sPattern)
@@ -296,8 +298,9 @@ def showSeries(sSearch = ''):
  
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
+    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
  # ([^<]+) .+? (.+?)
-    sPattern = '<div class="Block--Item.+?href="([^<]+)" title="(.+?)">.+?src="(.+?)" alt='
+    sPattern = '<div class="Block--Item.+?href="([^<]+)" title="(.+?)">.+?data-src="(.+?)"[^>]*alt='
 
     oParser = cParser()
     aResult = oParser.parse(sHtmlContent, sPattern)

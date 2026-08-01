@@ -20,10 +20,12 @@ SITE_DESC = 'The Pirate Bay torrent site'
 
 URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
 
-CAT_FILMS = (URL_MAIN + '/browse/201', 'showFilms')
-CAT_SERIES = (URL_MAIN + '/browse/205', 'showSeries')
+CAT_FILMS = (URL_MAIN + 'search/?cat=0&query=', 'showFilms')
+CAT_SERIES = (URL_MAIN + 'search/?cat=0&query=', 'showSeries')
 
-URL_SEARCH = (URL_MAIN + '/search/', 'showSearch')
+URL_SEARCH = (URL_MAIN + 'search/?cat=4&query=', 'showSearch')
+URL_SEARCH_MOVIES = (URL_MAIN + 'search/?cat=0&query=', 'showSearch')
+URL_SEARCH_SERIES = (URL_MAIN + 'search/?cat=0&query=', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 URL_SEARCH_DRAMAS = ('', 'showSearch')
 
@@ -55,21 +57,27 @@ def showSearch(sSearchText=''):
         sUrl = sSearchText
     else:
         sSearchText = urllib.parse.unquote(sSearchText)
-        sUrl = URL_MAIN + '/search/' + urllib.parse.quote(sSearchText) + '/1/99/0'
-        oRequestHandler = cRequestHandler(sUrl)
-        sHtmlContent = oRequestHandler.request()
-        __showTorrents(sHtmlContent)
-
-def showFilms():
-    oInputParameterHandler = cInputParameterHandler()
-    sUrl = oInputParameterHandler.getValue('siteUrl')
+        sUrl = URL_MAIN + 'search/?cat=0&query=' + urllib.parse.quote(sSearchText)
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
     __showTorrents(sHtmlContent)
 
+def showFilms():
+    __showSearchPrompt('search/?cat=0&query=')
+
 def showSeries():
+    __showSearchPrompt('search/?cat=0&query=')
+
+def __showSearchPrompt(sSearchBase):
     oInputParameterHandler = cInputParameterHandler()
     sUrl = oInputParameterHandler.getValue('siteUrl')
+    if sUrl.endswith('query='):
+        oGui = cGui()
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+        sUrl = sUrl + urllib.parse.quote(sSearchText)
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
     __showTorrents(sHtmlContent)
@@ -78,7 +86,8 @@ def __showTorrents(sHtmlContent):
     oGui = cGui()
     oParser = cParser()
 
-    sPattern = r'<tr>.*?<a href="(/torrent/\d+[^"]*)" class="detLink"[^>]*>([^<]+)</a>.*?<font class="detDesc">.*?Size (\d+[^<,]+).*?</font>.*?<td[^>]*align="right"[^>]*>(\d+)</td>'
+    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
+    sPattern = r'<a href="(https?://[^"]*/torrent/\d+[^"]*)" class="detLink"[^>]*>([^<]+)</a>.*?<td align="right">(\d+)</td>.*?<td align="right">(\d+)</td>'
     aResult = oParser.parse(sHtmlContent, sPattern)
 
     if aResult[0]:
@@ -86,11 +95,11 @@ def __showTorrents(sHtmlContent):
         for aEntry in aResult[1]:
             sUrl = aEntry[0]
             sTitle = html.unescape(aEntry[1].strip()).replace('&#039;', "'").replace('&amp;', '&').replace('&quot;', '"')
-            sSize = aEntry[2].strip()
-            sSeeds = aEntry[3].strip()
-            sDisplayName = '{}\n[COLOR grey]Size: {} | Seeds: {}[/COLOR]'.format(sTitle, sSize, sSeeds)
+            sSeeds = aEntry[2].strip()
+            sLeechers = aEntry[3].strip()
+            sDisplayName = '{}\n[COLOR grey]Seeds: {} | Leechers: {}[/COLOR]'.format(sTitle, sSeeds, sLeechers)
 
-            oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + sUrl)
+            oOutputParameterHandler.addParameter('siteUrl', sUrl)
             oOutputParameterHandler.addParameter('sMovieTitle', sTitle)
 
             oGui.addMovie(SITE_IDENTIFIER, 'showHosters', sDisplayName, icons + '/Movies.png', '', sDisplayName, oOutputParameterHandler)
@@ -104,11 +113,11 @@ def __showTorrents(sHtmlContent):
     oGui.setEndOfDirectory()
 
 def __checkForNextPage(sHtmlContent):
-    sPattern = r'<a href="([^"]+)"[^>]*>Next</a>'
+    sPattern = r'href="([^"]+)" rel="next"'
     oParser = cParser()
     aResult = oParser.parse(sHtmlContent, sPattern)
     if aResult[0]:
-        return URL_MAIN + aResult[1][0]
+        return aResult[1][0]
     return False
 
 def showHosters():

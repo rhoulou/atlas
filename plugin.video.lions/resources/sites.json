@@ -549,7 +549,7 @@
         "topcinema": {
             "label": "TopCinema",
             "active": "True",
-            "url": "https://web3.topcinema.top/"
+            "url": "https://topcinemaa.cc/"
         },
         "topimdb": {
             "label": "Top IMDB",
@@ -576,16 +576,6 @@
             "active": "True",
             "url": "https://torrent9.torrentbay.st/"
         },
-        "torrentgalaxy_pw": {
-            "label": "TorrentGalaxy",
-            "active": "True",
-            "url": "https://torrentgalaxy.pw/"
-        },
-        "torrentproject_torrentbay_st": {
-            "label": "TorrentProject",
-            "active": "True",
-            "url": "https://torrentproject.torrentbay.st/"
-        },
         "torrentz2_torrentbay_st": {
             "label": "Torrentz2",
             "active": "False",
@@ -594,12 +584,7 @@
         "tuktukcinema": {
             "label": "Tuktukcinema",
             "active": "True",
-            "url": "https://ww.tuktukcima.com/"
-        },
-        "tvfun": {
-            "label": "tvfun",
-            "active": "True",
-            "url": "https://www.tv-f.com/"
+            "url": "https://tuktukhd.com/"
         },
         "tvnine": {
             "label": "Tv96",
@@ -619,7 +604,7 @@
         "witanime": {
             "label": "WitAnime",
             "active": "True",
-            "url": "https://witanime.com/"
+            "url": "https://witanime.you/"
         },
         "xhamsterlive": {
             "label": "xHamsterLive",

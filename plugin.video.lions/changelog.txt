@@ -1,4 +1,18 @@
 =====================================================
+version="1.0.98"
+-topcinema: domain moved to topcinemaa.cc (old web3.topcinema.top is down, HTTP 500); the on-site search page is JS-rendered so the search now POSTs to the site's own endpoint (wp-content/themes/movies2023/Ajaxat/Searching.php, s=<term>&type=all|series) and reuses the working listing parser; category + search card parsers are now newline-tolerant (the live HTML splits each Small--Box block across lines, the old strict regex matched 0 rows)
+-thepiratebay_city: categories and global search rebuilt for the new URL scheme - Porn search uses /search/?cat=4&query=<term>, Films/Series menus and Movies/Series search use /search?cat=0&query=<term> (the old /browse/201 and /browse/205 category pages are gone, HTTP 404); the listing parser was rewritten for the new detLink row layout (title + seed/leech counts, no more size cell) and pagination now follows the rel="next" link
+-torrent911.app + torrent9.bid + torrent9.torrentbay.st: search URLs were built with a double slash (//recherche/xxx) because URL_MAIN kept its trailing slash - URL_MAIN is now normalized with rstrip('/')
+-torrentgalaxy.pw + torrentproject.torrentbay.st: both domains are dead - sites removed entirely (menu entry, module, icon)
+-tvfun: dead domain - site removed entirely
+-tuktukcinema: domain moved to tuktukhd.com, search now uses the real /?s=<term> scheme and the card parser reads data-src artwork across the new multi-line HTML
+-watanflix: global search now calls the site's JSON autocomplete endpoint (/ar/search?q=<term>) instead of the HTML series page that returned 0 rows
+-witanime: domain moved to witanime.you
+-xhamsterlive: search moved to the working API endpoint (the on-site /search page is JS-rendered)
+-yts_pro + zooqle_io + zone_telechargement_estate: global search rebuilt around each site's real search handler (keyword/quality/genre/year/language/sort params, ?s=films&search=, and /search pages)
+=====================================================
+
+=====================================================
 version="1.0.97"
 -torrent9.bid + torrent9.torrentbay.st: global search fixed - the broken POST search (torrentSearch -> 302 redirect) and the wrong /search/ path are replaced by the site's real GET scheme /recherche/<term>[/page]; the listing parser previously matched 0 rows because the live HTML puts a newline between the title and the size/seed cells (regex is not DOTALL), the parser now normalizes newlines before matching; search results paginate through the site's /recherche/<term>/<N> links
 -torrent9.torrentbay.st: listing parser rewritten for the site's banner layout (Torrent911 engine); the domain is Cloudflare-protected and is solved automatically via FlareSolverr (local http://127.0.0.1:8191/v1 or the Public FlareSolverr endpoint when enabled); categories now use /torrents/films and /torrents/series

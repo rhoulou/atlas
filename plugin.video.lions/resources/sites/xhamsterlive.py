@@ -2,6 +2,7 @@
 
 import re
 import json
+import urllib.parse
 import xbmc
 import xbmcgui
 
@@ -28,7 +29,7 @@ CHAT_COUPLES = (API_BASE + 'couples', 'showRooms')
 CHAT_MALE = (API_BASE + 'men', 'showRooms')
 CHAT_TRANS = (API_BASE + 'trans', 'showRooms')
 
-URL_SEARCH = (URL_MAIN, 'showSearch')
+URL_SEARCH = ('', 'showSearch')
 FUNCTION_SEARCH = 'showSearch'
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
@@ -64,15 +65,18 @@ def load():
     oGui.setEndOfDirectory()
 
 
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText:
-        for sGender in ('girls', 'couples', 'men', 'trans'):
-            sUrl = API_BASE + sGender
-            showRooms(sUrl, sSearchText)
-        oGui.setEndOfDirectory()
-        return
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    sSearchText = urllib.parse.unquote(sSearchText)
+    for sGender in ('girls', 'couples', 'men', 'trans'):
+        sUrl = API_BASE + sGender
+        showRooms(sUrl, sSearchText)
+    oGui.setEndOfDirectory()
 
 
 def showRooms(sSearch='', sSearchText=''):

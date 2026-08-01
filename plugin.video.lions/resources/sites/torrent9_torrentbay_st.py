@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'torrent9_torrentbay_st'
 SITE_NAME = 'Torrent9 (.st)'
 SITE_DESC = 'Torrent9 torrent site on torrentbay.st'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/torrents/films', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/torrents/series', 'showSeries')

@@ -22,7 +22,7 @@ SITE_IDENTIFIER = 'witanime'
 SITE_NAME = 'WitAnime'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 ANIM_MOVIES = (URL_MAIN + '/anime-type/movie/', 'showMovies')
 ANIM_NEWS = (URL_MAIN+'/episode/' , 'showSeries')

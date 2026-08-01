@@ -4,6 +4,7 @@
 #############################################################
 
 import re
+import urllib.parse
 	
 from resources.lib.gui.hoster import cHosterGui
 from resources.lib.gui.gui import cGui
@@ -34,10 +35,10 @@ SERIE_NETFLIX = (URL_MAIN + 'netflix-series/?cat=7', 'showSeries')
 SERIE_ASIA = (URL_MAIN + 'category/مسلسلات-اسيوية/', 'showSeries')
 ANIM_NEWS = (URL_MAIN + 'category/مسلسلات-انمي/', 'showSeries')
 
-URL_SEARCH = (URL_MAIN + '?s=', 'showMovies')
-URL_SEARCH_MOVIES = (URL_MAIN +'?s=', 'showMovies')
-URL_SEARCH_SERIES = (URL_MAIN +'?s=', 'showSeries')
-FUNCTION_SEARCH = 'showMovies'
+URL_SEARCH = ('', 'showSearch')
+URL_SEARCH_MOVIES = ('', 'showSearch')
+URL_SEARCH_SERIES = ('', 'showSearchSeries')
+FUNCTION_SEARCH = 'showSearch'
  
 def load():
     oGui = cGui()
@@ -79,25 +80,68 @@ def load():
 
     oGui.setEndOfDirectory()
  
-def showSearch():
+def showSearch(sSearchText=''):
     oGui = cGui()
- 
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText is not False:
-        sUrl = URL_MAIN + '?s=فيلم+'+sSearchText
-        showMovies(sUrl)
-        oGui.setEndOfDirectory()
-        return
- 
-def showSearchSeries():
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    __search(sSearchText, 'all')
+
+def showSearchSeries(sSearchText=''):
     oGui = cGui()
- 
-    sSearchText = oGui.showKeyBoard()
-    if sSearchText is not False:
-        sUrl = URL_MAIN + '?s=مسلسل+'+sSearchText
-        showSeries(sUrl)
-        oGui.setEndOfDirectory()
-        return
+    if not sSearchText:
+        sSearchText = oGui.showKeyBoard()
+        if not sSearchText:
+            oGui.setEndOfDirectory()
+            return
+    __search(sSearchText, 'series')
+
+def __search(sSearchText, sType):
+    sSearchText = urllib.parse.unquote(sSearchText)
+    oRequestHandler = cRequestHandler(URL_MAIN + 'wp-content/themes/movies2023/Ajaxat/Searching.php')
+    oRequestHandler.setRequestType(1)
+    oRequestHandler.addHeaderEntry('Content-Type', 'application/x-www-form-urlencoded')
+    oRequestHandler.addHeaderEntry('Referer', URL_MAIN)
+    oRequestHandler.addHeaderEntry('X-Requested-With', 'XMLHttpRequest')
+    oRequestHandler.addParametersLine('s=' + urllib.parse.quote(sSearchText) + '&type=' + sType)
+    sHtmlContent = oRequestHandler.request()
+    __showSearchResults(sHtmlContent)
+
+def __showSearchResults(sHtmlContent):
+    oGui = cGui()
+    oParser = cParser()
+    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
+    sPattern = '<div class="Small--Box"[^>]*>.*?<a href="([^"]+)" title="([^"]+)"[^>]*>.*?data-src="([^"]+)'
+    aResult = oParser.parse(sHtmlContent, sPattern)
+    if aResult[0] is True:
+        oOutputParameterHandler = cOutputParameterHandler()
+        for aEntry in aResult[1]:
+            sTitle = aEntry[1].replace("مشاهدة","").replace("مسلسل","").replace("انمي","").replace("مترجمة","").replace("مترجم","").replace("فيلم","").replace("والأخيرة","").replace("مدبلج للعربية","مدبلج").replace("والاخيرة","").replace("كاملة","").replace("حلقات كاملة","").replace("اونلاين","").replace("مباشرة","").replace("انتاج ","").replace("جودة عالية","").replace("كامل","").replace("HD","").replace("السلسلة الوثائقية","").replace("الفيلم الوثائقي","").replace("اون لاين","").replace("الموسم العاشر","S10").replace("الموسم الحادي عشر","S11").replace("الموسم الثاني عشر","S12").replace("الموسم الثالث عشر","S13").replace("الموسم الرابع عشر","S14").replace("الموسم الخامس عشر","S15").replace("الموسم السادس عشر","S16").replace("الموسم السابع عشر","S17").replace("الموسم الثامن عشر","S18").replace("الموسم التاسع عشر","S19").replace("الموسم العشرون","S20").replace("الموسم الحادي و العشرون","S21").replace("الموسم الثاني و العشرون","S22").replace("الموسم الثالث و العشرون","S23").replace("الموسم الرابع والعشرون","S24").replace("الموسم الخامس و العشرون","S25").replace("الموسم السادس والعشرون","S26").replace("الموسم السابع والعشرون","S27").replace("الموسم الثامن والعشرون","S28").replace("الموسم التاسع والعشرون","S29").replace("الموسم الثلاثون","S30").replace("الموسم الحادي و الثلاثون","S31").replace("الموسم الثاني والثلاثون","S32").replace("الموسم الاول","S1").replace("الموسم الثاني","S2").replace("الموسم الثالث","S3").replace("الموسم الثالث","S3").replace("الموسم الرابع","S4").replace("الموسم الخامس","S5").replace("الموسم السادس","S6").replace("الموسم السابع","S7").replace("الموسم الثامن","S8").replace("الموسم التاسع","S9").replace("الموسم","S").replace("S ","S").replace("الحلقة "," E")
+            siteUrl = aEntry[0]
+            sThumb = re.sub(r'-\d+x\d{0,3}','', aEntry[2])
+            sDesc = ''
+            sYear = ''
+            m = re.search('([0-9]{4})', sTitle)
+            if m:
+                sYear = str(m.group(0))
+                sTitle = sTitle.replace(sYear,'')
+            sDisplayTitle = ('%s (%s)') % (sTitle, sYear)
+
+            oOutputParameterHandler.addParameter('siteUrl',siteUrl)
+            oOutputParameterHandler.addParameter('sMovieTitle', sTitle)
+            oOutputParameterHandler.addParameter('sThumb', sThumb)
+            oOutputParameterHandler.addParameter('sYear', sYear)
+            oOutputParameterHandler.addParameter('sDesc', sDesc)
+
+            if 'serie' in siteUrl or 'مسلسل' in siteUrl:
+                oGui.addTV(SITE_IDENTIFIER, 'showSeasons', sDisplayTitle, '', sThumb, sDesc, oOutputParameterHandler)
+            else:
+                siteUrl = aEntry[0]+'/watch'
+                oOutputParameterHandler.addParameter('siteUrl',siteUrl)
+                oGui.addMovie(SITE_IDENTIFIER, 'showLinks', sDisplayTitle, '', sThumb, sDesc, oOutputParameterHandler)
+    oGui.setEndOfDirectory()
 
 def showPack(sSearch = ''):
     oGui = cGui()
@@ -154,10 +198,11 @@ def showMovies(sSearch = ''):
  
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
+    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
     
     oParser = cParser()
 
-    sPattern = '<div class="Small--Box"><a href="([^"]+)" title="([^"]+)".+?data-src="([^"]+)'
+    sPattern = '<div class="Small--Box"[^>]*>.*?<a href="([^"]+)" title="([^"]+)"[^>]*>.*?data-src="([^"]+)'
     aResult = oParser.parse(sHtmlContent, sPattern)
     if aResult[0] is True:
         oOutputParameterHandler = cOutputParameterHandler()
@@ -260,8 +305,9 @@ def showSeries(sSearch = ''):
  
     oRequestHandler = cRequestHandler(sUrl)
     sHtmlContent = oRequestHandler.request()
+    sHtmlContent = re.sub(r'\r?\n', '', sHtmlContent)
  # ([^<]+) .+? (.+?)
-    sPattern = '<div class="Small--Box">.+?href="([^"]+)" title="([^"]+)".+?data-src="([^"]+)'
+    sPattern = '<div class="Small--Box"[^>]*>.*?href="([^"]+)" title="([^"]+)".+?data-src="([^"]+)'
 
     oParser = cParser()
     aResult = oParser.parse(sHtmlContent, sPattern)

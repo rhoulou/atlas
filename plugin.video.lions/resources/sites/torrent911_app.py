@@ -18,7 +18,7 @@ SITE_IDENTIFIER = 'torrent911_app'
 SITE_NAME = 'Torrent911'
 SITE_DESC = 'Torrent911 torrent site'
 
-URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER)
+URL_MAIN = siteManager().getUrlMain(SITE_IDENTIFIER).rstrip('/')
 
 CAT_FILMS = (URL_MAIN + '/torrents/films', 'showFilms')
 CAT_SERIES = (URL_MAIN + '/torrents/series', 'showSeries')
