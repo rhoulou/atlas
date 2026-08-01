@@ -356,6 +356,11 @@
             "active": "True",
             "url": "https://ilcorsaronero.torrentbay.st/"
         },
+        "imdb": {
+            "label": "IMDb",
+            "active": "True",
+            "url": "https://www.imdb.com/"
+        },
         "kat_cc": {
             "label": "KAT",
             "active": "True",

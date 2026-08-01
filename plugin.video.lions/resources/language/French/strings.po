@@ -356,6 +356,10 @@ msgctxt "#30088"
 msgid "TMDB"
 msgstr "TMDB"
 
+msgctxt "#30422153"
+msgid "IMDb"
+msgstr "IMDb"
+
 msgctxt "#30089"
 msgid "Clear matrix Cache, Successful"
 msgstr "Nettoyage du cache matrix, Réussi"

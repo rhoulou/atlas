@@ -1,4 +1,8 @@
 =====================================================
+version="1.0.101"
+-New IMDb site (imdb): browse Top 250, Popular Movies, Popular TV and 17 movie genres by scraping www.imdb.com; search uses the WAF-free legacy suggestion API (v2.sg.media-imdb.com); titles hand off to the global search
+=====================================================
+=====================================================
 version="1.0.100"
 -32 sites: URL_MAIN is now normalized with rstrip('/') so search URLs no longer double-slash (//search/xxx) - aflaam, aflamfree, aflamtop, akwam, alfajertv, animeblkom, animeup, animezid, aracinema_co, asiaarabs, bahyfilm, cimanow, daktna, egydead, extranet_torrentbay_st, extratorrent_torrentbay_st, eztvx_to, fansubs, faselhd, gateanime, ilcorsaronero_torrentbay_st, libgen_torrentbay_st, limetorrents_asia, lodynet, magnetdl_pro, mycima, pakistani, pirateiro_io, rarbg_to, cinemana, cimau, halacima
 -cimau: global search moved to the /search/<term>/ scheme (was a broken /?s= query)

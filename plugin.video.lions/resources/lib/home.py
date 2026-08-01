@@ -31,6 +31,9 @@ class cHome:
         oGui.addDir('themoviedb_org', 'load', self.addons.VSlang(30088), icons + '/TMDB.png', oOutputParameterHandler)
 
         oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
+        oGui.addDir('imdb', 'load', self.addons.VSlang(30422153), icons + '/IMDB.png', oOutputParameterHandler)
+
+        oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
         oGui.addDir(SITE_IDENTIFIER, 'showMovies', self.addons.VSlang(30120), icons + '/Movies.png', oOutputParameterHandler)
 
         oOutputParameterHandler.addParameter('siteUrl', 'http://venom')
