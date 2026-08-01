@@ -412,7 +412,7 @@
         "imdb": {
             "label": "imdb_com",
             "active": "True",
-            "url": "https://www.imdb.com/",
+            "url": "https://1fe84bc728af-imdb-catalogs.baby-beamup.club/",
             "lng": "30422222"
         },
         "kat_cc": {
@@ -640,7 +640,7 @@
         "topimdb": {
             "label": "imdb_com",
             "active": "True",
-            "url": "https://www.imdb.com/",
+            "url": "https://1fe84bc728af-imdb-catalogs.baby-beamup.club/",
             "lng": "30422260"
         },
         "torrent911_app": {
