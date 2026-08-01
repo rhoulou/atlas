@@ -62,14 +62,14 @@ def buildSite(sSiteIdentifier, sSiteName, sLang, sSiteDesc):
             sWord = 'Saison'
         else:
             sWord = 'Season'
-        return '%s %d' % (sWord, iSeasonNumber)
+        return '%s %s' % (sWord, iSeasonNumber)
 
     def _episodeLabel(iNumber):
         if sLang == 'ar':
-            return 'الحلقة %d' % iNumber
+            return 'الحلقة %s' % iNumber
         if sLang == 'fr':
-            return 'Épisode %d' % iNumber
-        return 'Episode %d' % iNumber
+            return 'Épisode %s' % iNumber
+        return 'Episode %s' % iNumber
 
     def load():
         oGui = cGui()
