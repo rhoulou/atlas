@@ -1,4 +1,9 @@
 =====================================================
+version="1.0.96"
+-shahid.mbc.net: the site is now a pure metadata catalog (like TMDB / aflamin) instead of a playback source - DRM/widevine playback code removed; menu offers Search (TV Shows / Movies), Top 10 Movies, Top 10 Series and three featured Hero selections (Free / Series / Movies Picks); every catalog entry carries full metadata (description, cast, genres, year, poster/fanart, localized per ar/fr/en instance); clicking a Movie or Episode runs the addon's global source search (globalSearch/showSearch + searchtext + cat) so playback comes from other enabled sites, while Series open a season browser (seasons + episodes with real episode counts) plus a "Search sources" folder; uses the /search/{tab}, /product/top-ranking-by-type, /editorial/page + /editorial/carousel, /product/id and /product/playlistsBySeason endpoints
+=====================================================
+
+=====================================================
 version="1.0.95"
 -shahid.mbc.net: catalog now localizes per instance (ar/fr/en) - the API language/accept-language headers are derived from the site language instead of being hardcoded to Arabic, so AR/EN/FR show the same catalog with titles in each language; search is now enabled (TV Shows / Movies tabs) via the api3.shahid.net /search/{tab} endpoint, which required the uuid/profile/profile-key headers captured from the official player
 =====================================================
