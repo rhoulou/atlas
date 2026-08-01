@@ -361,10 +361,10 @@
       "active": "True",
       "url": "https://libgen.torrentbay.st/"
     },
-    "limetorrents_asia": {
+    "limetorrents_net": {
       "label": "Limetorrents",
       "active": "True",
-      "url": "https://limetorrents.asia/"
+      "url": "https://limetorrent.net/"
     },
     "linkbox": {
       "label": "Telebox",
