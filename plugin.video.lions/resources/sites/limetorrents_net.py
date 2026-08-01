@@ -12,9 +12,9 @@ from resources.lib.comaddon import VSlog, siteManager, addon
 
 ADDON = addon()
 icons = ADDON.getSetting('defaultIcons')
-LOGO = 'special://home/addons/plugin.video.lions/resources/art/sites/limetorrents_asia.png'
+LOGO = 'special://home/addons/plugin.video.lions/resources/art/sites/limetorrents_net.png'
 
-SITE_IDENTIFIER = 'limetorrents_asia'
+SITE_IDENTIFIER = 'limetorrents_net'
 SITE_NAME = 'LimeTorrents'
 SITE_DESC = 'LimeTorrents torrent site'
 
@@ -153,7 +153,7 @@ def __showTorrents(sHtmlContent, sNextFunc='showFilms'):
     oGui = cGui()
     oParser = cParser()
 
-    sPattern = r'<td class="tdleft">.*?(?:<div class="tt-name">)?.*?<a href="(https://limetorrents\.asia/[^"]+)"[^>]*class="openPopup"[^>]*>([^<]+)</a>.*?<td class="tdnormal">[^<]*</td>.*?<td class="tdnormal">([^<]+)</td>.*?<td class="tdseed">(\d+)</td>.*?<td class="tdleech">(\d+)</td>'
+    sPattern = r'<td class="tdleft">.*?(?:<div class="tt-name">)?.*?<a href="(https://limetorrent\.net/[^"]+)"[^>]*class="openPopup"[^>]*>([^<]+)</a>.*?<td class="tdnormal">[^<]*</td>.*?<td class="tdnormal">([^<]+)</td>.*?<td class="tdseed">(\d+)</td>.*?<td class="tdleech">(\d+)</td>'
     aResult = oParser.parse(sHtmlContent, sPattern)
 
     if aResult[0]:

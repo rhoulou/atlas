@@ -1,4 +1,8 @@
 =====================================================
+version="1.0.106"
+-LimeTorrents moved from limetorrents.asia to limetorrent.net: site renamed to limetorrents_net (module, icon, sites.json, home category, translations) and all browse/search/detail URLs + parsing use the new domain
+=====================================================
+=====================================================
 version="1.0.105"
 -Rebuilt IMDb + Top IMDb on the IMDB Catalogs addon: Films IMDb / Series IMDb browse lists (100 movies + 100 series with real IMDb ids) and Top IMDb series catalog; search via the IMDb suggestion API
 -Removed the broken imdb.com scraping and the Genres submenu (imdb.com blocks scraping with HTTP 202)

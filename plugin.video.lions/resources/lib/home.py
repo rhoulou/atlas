@@ -550,7 +550,7 @@ class cHome:
             ('torrent911_app', 'sites/torrent911_app.png'),
             ('x1337x_pro', 'sites/x1337x_pro.png'),
             ('zooqle_io', 'sites/zooqle_io.png'),
-            ('limetorrents_asia', 'sites/limetorrents_asia.png'),
+            ('limetorrents_net', 'sites/limetorrents_net.png'),
             ('magnetdl_pro', 'sites/magnetdl_pro.png'),
             ('eztvx_to', 'sites/eztvx_to.png'),
             ('en_yts_lu', 'sites/en_yts_lu.png'),
